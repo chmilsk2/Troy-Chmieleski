@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>6220FC6C-B129-400D-B6BE-D6B370AE7A40</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Troy Chmieleski</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>6857E7D3-53D6-44BA-80F7-E964D3A323CD</key>
+		<string>ssh://github.com/chmilsk2/Troy-Chmieleski.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Troy Chmieleski.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>6857E7D3-53D6-44BA-80F7-E964D3A323CD</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/chmilsk2/Troy-Chmieleski.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>6857E7D3-53D6-44BA-80F7-E964D3A323CD</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>6857E7D3-53D6-44BA-80F7-E964D3A323CD</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Troy-Chmieleski</string>
+		</dict>
+	</array>
+</dict>
+</plist>

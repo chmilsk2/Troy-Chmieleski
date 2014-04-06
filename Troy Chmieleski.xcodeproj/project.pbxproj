@@ -1,0 +1,452 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		05DADBFC18F1C35800B96EE2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DADBFB18F1C35800B96EE2 /* Foundation.framework */; };
+		05DADBFE18F1C35800B96EE2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DADBFD18F1C35800B96EE2 /* CoreGraphics.framework */; };
+		05DADC0018F1C35800B96EE2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DADBFF18F1C35800B96EE2 /* UIKit.framework */; };
+		05DADC0618F1C35800B96EE2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 05DADC0418F1C35800B96EE2 /* InfoPlist.strings */; };
+		05DADC0818F1C35800B96EE2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DADC0718F1C35800B96EE2 /* main.m */; };
+		05DADC0C18F1C35800B96EE2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DADC0B18F1C35800B96EE2 /* AppDelegate.m */; };
+		05DADC0E18F1C35800B96EE2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05DADC0D18F1C35800B96EE2 /* Images.xcassets */; };
+		05DADC1518F1C35800B96EE2 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DADC1418F1C35800B96EE2 /* XCTest.framework */; };
+		05DADC1618F1C35800B96EE2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DADBFB18F1C35800B96EE2 /* Foundation.framework */; };
+		05DADC1718F1C35800B96EE2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DADBFF18F1C35800B96EE2 /* UIKit.framework */; };
+		05DADC1F18F1C35800B96EE2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 05DADC1D18F1C35800B96EE2 /* InfoPlist.strings */; };
+		05DADC2118F1C35800B96EE2 /* Troy_ChmieleskiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DADC2018F1C35800B96EE2 /* Troy_ChmieleskiTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		05DADC1818F1C35800B96EE2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 05DADBF018F1C35800B96EE2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 05DADBF718F1C35800B96EE2;
+			remoteInfo = "Troy Chmieleski";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		05DADBF818F1C35800B96EE2 /* Troy Chmieleski.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Troy Chmieleski.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		05DADBFB18F1C35800B96EE2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		05DADBFD18F1C35800B96EE2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		05DADBFF18F1C35800B96EE2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		05DADC0318F1C35800B96EE2 /* Troy Chmieleski-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Troy Chmieleski-Info.plist"; sourceTree = "<group>"; };
+		05DADC0518F1C35800B96EE2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		05DADC0718F1C35800B96EE2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		05DADC0918F1C35800B96EE2 /* Troy Chmieleski-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Troy Chmieleski-Prefix.pch"; sourceTree = "<group>"; };
+		05DADC0A18F1C35800B96EE2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		05DADC0B18F1C35800B96EE2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		05DADC0D18F1C35800B96EE2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		05DADC1318F1C35800B96EE2 /* Troy ChmieleskiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Troy ChmieleskiTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		05DADC1418F1C35800B96EE2 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		05DADC1C18F1C35800B96EE2 /* Troy ChmieleskiTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Troy ChmieleskiTests-Info.plist"; sourceTree = "<group>"; };
+		05DADC1E18F1C35800B96EE2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		05DADC2018F1C35800B96EE2 /* Troy_ChmieleskiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Troy_ChmieleskiTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		05DADBF518F1C35800B96EE2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05DADBFE18F1C35800B96EE2 /* CoreGraphics.framework in Frameworks */,
+				05DADC0018F1C35800B96EE2 /* UIKit.framework in Frameworks */,
+				05DADBFC18F1C35800B96EE2 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05DADC1018F1C35800B96EE2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05DADC1518F1C35800B96EE2 /* XCTest.framework in Frameworks */,
+				05DADC1718F1C35800B96EE2 /* UIKit.framework in Frameworks */,
+				05DADC1618F1C35800B96EE2 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		05DADBEF18F1C35800B96EE2 = {
+			isa = PBXGroup;
+			children = (
+				05DADC0118F1C35800B96EE2 /* Troy Chmieleski */,
+				05DADC1A18F1C35800B96EE2 /* Troy ChmieleskiTests */,
+				05DADBFA18F1C35800B96EE2 /* Frameworks */,
+				05DADBF918F1C35800B96EE2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		05DADBF918F1C35800B96EE2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				05DADBF818F1C35800B96EE2 /* Troy Chmieleski.app */,
+				05DADC1318F1C35800B96EE2 /* Troy ChmieleskiTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		05DADBFA18F1C35800B96EE2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				05DADBFB18F1C35800B96EE2 /* Foundation.framework */,
+				05DADBFD18F1C35800B96EE2 /* CoreGraphics.framework */,
+				05DADBFF18F1C35800B96EE2 /* UIKit.framework */,
+				05DADC1418F1C35800B96EE2 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		05DADC0118F1C35800B96EE2 /* Troy Chmieleski */ = {
+			isa = PBXGroup;
+			children = (
+				05DADC0A18F1C35800B96EE2 /* AppDelegate.h */,
+				05DADC0B18F1C35800B96EE2 /* AppDelegate.m */,
+				05DADC0D18F1C35800B96EE2 /* Images.xcassets */,
+				05DADC0218F1C35800B96EE2 /* Supporting Files */,
+			);
+			path = "Troy Chmieleski";
+			sourceTree = "<group>";
+		};
+		05DADC0218F1C35800B96EE2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				05DADC0318F1C35800B96EE2 /* Troy Chmieleski-Info.plist */,
+				05DADC0418F1C35800B96EE2 /* InfoPlist.strings */,
+				05DADC0718F1C35800B96EE2 /* main.m */,
+				05DADC0918F1C35800B96EE2 /* Troy Chmieleski-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		05DADC1A18F1C35800B96EE2 /* Troy ChmieleskiTests */ = {
+			isa = PBXGroup;
+			children = (
+				05DADC2018F1C35800B96EE2 /* Troy_ChmieleskiTests.m */,
+				05DADC1B18F1C35800B96EE2 /* Supporting Files */,
+			);
+			path = "Troy ChmieleskiTests";
+			sourceTree = "<group>";
+		};
+		05DADC1B18F1C35800B96EE2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				05DADC1C18F1C35800B96EE2 /* Troy ChmieleskiTests-Info.plist */,
+				05DADC1D18F1C35800B96EE2 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		05DADBF718F1C35800B96EE2 /* Troy Chmieleski */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05DADC2418F1C35800B96EE2 /* Build configuration list for PBXNativeTarget "Troy Chmieleski" */;
+			buildPhases = (
+				05DADBF418F1C35800B96EE2 /* Sources */,
+				05DADBF518F1C35800B96EE2 /* Frameworks */,
+				05DADBF618F1C35800B96EE2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Troy Chmieleski";
+			productName = "Troy Chmieleski";
+			productReference = 05DADBF818F1C35800B96EE2 /* Troy Chmieleski.app */;
+			productType = "com.apple.product-type.application";
+		};
+		05DADC1218F1C35800B96EE2 /* Troy ChmieleskiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05DADC2718F1C35800B96EE2 /* Build configuration list for PBXNativeTarget "Troy ChmieleskiTests" */;
+			buildPhases = (
+				05DADC0F18F1C35800B96EE2 /* Sources */,
+				05DADC1018F1C35800B96EE2 /* Frameworks */,
+				05DADC1118F1C35800B96EE2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				05DADC1918F1C35800B96EE2 /* PBXTargetDependency */,
+			);
+			name = "Troy ChmieleskiTests";
+			productName = "Troy ChmieleskiTests";
+			productReference = 05DADC1318F1C35800B96EE2 /* Troy ChmieleskiTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		05DADBF018F1C35800B96EE2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Troy Chmieleski";
+				TargetAttributes = {
+					05DADC1218F1C35800B96EE2 = {
+						TestTargetID = 05DADBF718F1C35800B96EE2;
+					};
+				};
+			};
+			buildConfigurationList = 05DADBF318F1C35800B96EE2 /* Build configuration list for PBXProject "Troy Chmieleski" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 05DADBEF18F1C35800B96EE2;
+			productRefGroup = 05DADBF918F1C35800B96EE2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				05DADBF718F1C35800B96EE2 /* Troy Chmieleski */,
+				05DADC1218F1C35800B96EE2 /* Troy ChmieleskiTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		05DADBF618F1C35800B96EE2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05DADC0618F1C35800B96EE2 /* InfoPlist.strings in Resources */,
+				05DADC0E18F1C35800B96EE2 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05DADC1118F1C35800B96EE2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05DADC1F18F1C35800B96EE2 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		05DADBF418F1C35800B96EE2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05DADC0C18F1C35800B96EE2 /* AppDelegate.m in Sources */,
+				05DADC0818F1C35800B96EE2 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05DADC0F18F1C35800B96EE2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05DADC2118F1C35800B96EE2 /* Troy_ChmieleskiTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		05DADC1918F1C35800B96EE2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 05DADBF718F1C35800B96EE2 /* Troy Chmieleski */;
+			targetProxy = 05DADC1818F1C35800B96EE2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		05DADC0418F1C35800B96EE2 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05DADC0518F1C35800B96EE2 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		05DADC1D18F1C35800B96EE2 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05DADC1E18F1C35800B96EE2 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		05DADC2218F1C35800B96EE2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		05DADC2318F1C35800B96EE2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		05DADC2518F1C35800B96EE2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Troy Chmieleski/Troy Chmieleski-Prefix.pch";
+				INFOPLIST_FILE = "Troy Chmieleski/Troy Chmieleski-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		05DADC2618F1C35800B96EE2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Troy Chmieleski/Troy Chmieleski-Prefix.pch";
+				INFOPLIST_FILE = "Troy Chmieleski/Troy Chmieleski-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		05DADC2818F1C35800B96EE2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Troy Chmieleski.app/Troy Chmieleski";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Troy Chmieleski/Troy Chmieleski-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Troy ChmieleskiTests/Troy ChmieleskiTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		05DADC2918F1C35800B96EE2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Troy Chmieleski.app/Troy Chmieleski";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Troy Chmieleski/Troy Chmieleski-Prefix.pch";
+				INFOPLIST_FILE = "Troy ChmieleskiTests/Troy ChmieleskiTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		05DADBF318F1C35800B96EE2 /* Build configuration list for PBXProject "Troy Chmieleski" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05DADC2218F1C35800B96EE2 /* Debug */,
+				05DADC2318F1C35800B96EE2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		05DADC2418F1C35800B96EE2 /* Build configuration list for PBXNativeTarget "Troy Chmieleski" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05DADC2518F1C35800B96EE2 /* Debug */,
+				05DADC2618F1C35800B96EE2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		05DADC2718F1C35800B96EE2 /* Build configuration list for PBXNativeTarget "Troy ChmieleskiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05DADC2818F1C35800B96EE2 /* Debug */,
+				05DADC2918F1C35800B96EE2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 05DADBF018F1C35800B96EE2 /* Project object */;
+}
