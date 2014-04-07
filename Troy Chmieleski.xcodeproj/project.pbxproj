@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0518160D18F1F8800009648E /* ReflectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0518160C18F1F8800009648E /* ReflectionViewController.m */; };
+		0518161118F1FA960009648E /* ReflectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0518161018F1FA960009648E /* ReflectionCell.m */; };
+		0518161418F1FE710009648E /* rainbowApple@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0518161318F1FE710009648E /* rainbowApple@2x.png */; };
+		0518161618F21BDC0009648E /* bmw@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0518161518F21BDC0009648E /* bmw@2x.png */; };
+		0518161818F21DC80009648E /* clownFish@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0518161718F21DC80009648E /* clownFish@2x.png */; };
+		0518161A18F21F170009648E /* sky@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0518161918F21F170009648E /* sky@2x.png */; };
+		0518161C18F21F2C0009648E /* quotes@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0518161B18F21F2C0009648E /* quotes@2x.png */; };
+		0518162018F2255A0009648E /* Reflection.m in Sources */ = {isa = PBXBuildFile; fileRef = 0518161F18F2255A0009648E /* Reflection.m */; };
+		0518162318F236A50009648E /* ExperienceReflection.m in Sources */ = {isa = PBXBuildFile; fileRef = 0518162218F236A50009648E /* ExperienceReflection.m */; };
+		0518162618F237810009648E /* ExperienceReflectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0518162518F237810009648E /* ExperienceReflectionCell.m */; };
 		05DADBFC18F1C35800B96EE2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DADBFB18F1C35800B96EE2 /* Foundation.framework */; };
 		05DADBFE18F1C35800B96EE2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DADBFD18F1C35800B96EE2 /* CoreGraphics.framework */; };
 		05DADC0018F1C35800B96EE2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DADBFF18F1C35800B96EE2 /* UIKit.framework */; };
@@ -19,6 +29,11 @@
 		05DADC1718F1C35800B96EE2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DADBFF18F1C35800B96EE2 /* UIKit.framework */; };
 		05DADC1F18F1C35800B96EE2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 05DADC1D18F1C35800B96EE2 /* InfoPlist.strings */; };
 		05DADC2118F1C35800B96EE2 /* Troy_ChmieleskiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DADC2018F1C35800B96EE2 /* Troy_ChmieleskiTests.m */; };
+		05DADC3718F1D1B100B96EE2 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DADC3618F1D1B100B96EE2 /* libGoogleAnalyticsServices.a */; };
+		05DADC3918F1D1C600B96EE2 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DADC3818F1D1C600B96EE2 /* AdSupport.framework */; };
+		05DADC3B18F1D1CE00B96EE2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DADC3A18F1D1CE00B96EE2 /* CoreData.framework */; };
+		05DADC3D18F1D1DB00B96EE2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DADC3C18F1D1DB00B96EE2 /* SystemConfiguration.framework */; };
+		05DADC3F18F1D1EA00B96EE2 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DADC3E18F1D1EA00B96EE2 /* libz.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +47,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0518160B18F1F8800009648E /* ReflectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReflectionViewController.h; sourceTree = "<group>"; };
+		0518160C18F1F8800009648E /* ReflectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReflectionViewController.m; sourceTree = "<group>"; };
+		0518160F18F1FA960009648E /* ReflectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReflectionCell.h; sourceTree = "<group>"; };
+		0518161018F1FA960009648E /* ReflectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReflectionCell.m; sourceTree = "<group>"; };
+		0518161318F1FE710009648E /* rainbowApple@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rainbowApple@2x.png"; sourceTree = "<group>"; };
+		0518161518F21BDC0009648E /* bmw@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bmw@2x.png"; sourceTree = "<group>"; };
+		0518161718F21DC80009648E /* clownFish@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clownFish@2x.png"; sourceTree = "<group>"; };
+		0518161918F21F170009648E /* sky@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sky@2x.png"; sourceTree = "<group>"; };
+		0518161B18F21F2C0009648E /* quotes@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "quotes@2x.png"; sourceTree = "<group>"; };
+		0518161E18F2255A0009648E /* Reflection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reflection.h; sourceTree = "<group>"; };
+		0518161F18F2255A0009648E /* Reflection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reflection.m; sourceTree = "<group>"; };
+		0518162118F236A50009648E /* ExperienceReflection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExperienceReflection.h; sourceTree = "<group>"; };
+		0518162218F236A50009648E /* ExperienceReflection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExperienceReflection.m; sourceTree = "<group>"; };
+		0518162418F237810009648E /* ExperienceReflectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExperienceReflectionCell.h; sourceTree = "<group>"; };
+		0518162518F237810009648E /* ExperienceReflectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExperienceReflectionCell.m; sourceTree = "<group>"; };
 		05DADBF818F1C35800B96EE2 /* Troy Chmieleski.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Troy Chmieleski.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05DADBFB18F1C35800B96EE2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		05DADBFD18F1C35800B96EE2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -48,6 +78,18 @@
 		05DADC1C18F1C35800B96EE2 /* Troy ChmieleskiTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Troy ChmieleskiTests-Info.plist"; sourceTree = "<group>"; };
 		05DADC1E18F1C35800B96EE2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		05DADC2018F1C35800B96EE2 /* Troy_ChmieleskiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Troy_ChmieleskiTests.m; sourceTree = "<group>"; };
+		05DADC2E18F1D0FD00B96EE2 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAI.h; path = GoogleAnalytics/Library/GAI.h; sourceTree = SOURCE_ROOT; };
+		05DADC2F18F1D0FD00B96EE2 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAIDictionaryBuilder.h; path = GoogleAnalytics/Library/GAIDictionaryBuilder.h; sourceTree = SOURCE_ROOT; };
+		05DADC3018F1D0FD00B96EE2 /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAIFields.h; path = GoogleAnalytics/Library/GAIFields.h; sourceTree = SOURCE_ROOT; };
+		05DADC3118F1D0FD00B96EE2 /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAILogger.h; path = GoogleAnalytics/Library/GAILogger.h; sourceTree = SOURCE_ROOT; };
+		05DADC3218F1D0FD00B96EE2 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAITrackedViewController.h; path = GoogleAnalytics/Library/GAITrackedViewController.h; sourceTree = SOURCE_ROOT; };
+		05DADC3318F1D0FD00B96EE2 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAITracker.h; path = GoogleAnalytics/Library/GAITracker.h; sourceTree = SOURCE_ROOT; };
+		05DADC3418F1D16600B96EE2 /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAnalyticsServices.a; path = ../GoogleAnalyticsServicesiOS_3.06/libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
+		05DADC3618F1D1B100B96EE2 /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAnalyticsServices.a; path = GoogleAnalytics/libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
+		05DADC3818F1D1C600B96EE2 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		05DADC3A18F1D1CE00B96EE2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		05DADC3C18F1D1DB00B96EE2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		05DADC3E18F1D1EA00B96EE2 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +97,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05DADC3F18F1D1EA00B96EE2 /* libz.dylib in Frameworks */,
+				05DADC3D18F1D1DB00B96EE2 /* SystemConfiguration.framework in Frameworks */,
+				05DADC3B18F1D1CE00B96EE2 /* CoreData.framework in Frameworks */,
+				05DADC3918F1D1C600B96EE2 /* AdSupport.framework in Frameworks */,
+				05DADC3718F1D1B100B96EE2 /* libGoogleAnalyticsServices.a in Frameworks */,
 				05DADBFE18F1C35800B96EE2 /* CoreGraphics.framework in Frameworks */,
 				05DADC0018F1C35800B96EE2 /* UIKit.framework in Frameworks */,
 				05DADBFC18F1C35800B96EE2 /* Foundation.framework in Frameworks */,
@@ -74,6 +121,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0518160E18F1F9F80009648E /* Reflection Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0518160F18F1FA960009648E /* ReflectionCell.h */,
+				0518161018F1FA960009648E /* ReflectionCell.m */,
+				0518162418F237810009648E /* ExperienceReflectionCell.h */,
+				0518162518F237810009648E /* ExperienceReflectionCell.m */,
+			);
+			name = "Reflection Cell";
+			sourceTree = "<group>";
+		};
+		0518161218F1FE610009648E /* Reflection Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Reflection Images";
+			sourceTree = "<group>";
+		};
 		05DADBEF18F1C35800B96EE2 = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +161,12 @@
 		05DADBFA18F1C35800B96EE2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				05DADC3E18F1D1EA00B96EE2 /* libz.dylib */,
+				05DADC3C18F1D1DB00B96EE2 /* SystemConfiguration.framework */,
+				05DADC3A18F1D1CE00B96EE2 /* CoreData.framework */,
+				05DADC3818F1D1C600B96EE2 /* AdSupport.framework */,
+				05DADC3618F1D1B100B96EE2 /* libGoogleAnalyticsServices.a */,
+				05DADC3418F1D16600B96EE2 /* libGoogleAnalyticsServices.a */,
 				05DADBFB18F1C35800B96EE2 /* Foundation.framework */,
 				05DADBFD18F1C35800B96EE2 /* CoreGraphics.framework */,
 				05DADBFF18F1C35800B96EE2 /* UIKit.framework */,
@@ -107,6 +178,10 @@
 		05DADC0118F1C35800B96EE2 /* Troy Chmieleski */ = {
 			isa = PBXGroup;
 			children = (
+				05DADC2D18F1D09F00B96EE2 /* Controller */,
+				05DADC2C18F1D09C00B96EE2 /* View */,
+				05DADC2B18F1D09500B96EE2 /* Model */,
+				05DADC2A18F1D09000B96EE2 /* Google Analytics */,
 				05DADC0A18F1C35800B96EE2 /* AppDelegate.h */,
 				05DADC0B18F1C35800B96EE2 /* AppDelegate.m */,
 				05DADC0D18F1C35800B96EE2 /* Images.xcassets */,
@@ -118,6 +193,12 @@
 		05DADC0218F1C35800B96EE2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0518161218F1FE610009648E /* Reflection Images */,
+				0518161318F1FE710009648E /* rainbowApple@2x.png */,
+				0518161518F21BDC0009648E /* bmw@2x.png */,
+				0518161718F21DC80009648E /* clownFish@2x.png */,
+				0518161B18F21F2C0009648E /* quotes@2x.png */,
+				0518161918F21F170009648E /* sky@2x.png */,
 				05DADC0318F1C35800B96EE2 /* Troy Chmieleski-Info.plist */,
 				05DADC0418F1C35800B96EE2 /* InfoPlist.strings */,
 				05DADC0718F1C35800B96EE2 /* main.m */,
@@ -142,6 +223,47 @@
 				05DADC1D18F1C35800B96EE2 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		05DADC2A18F1D09000B96EE2 /* Google Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				05DADC2E18F1D0FD00B96EE2 /* GAI.h */,
+				05DADC2F18F1D0FD00B96EE2 /* GAIDictionaryBuilder.h */,
+				05DADC3018F1D0FD00B96EE2 /* GAIFields.h */,
+				05DADC3118F1D0FD00B96EE2 /* GAILogger.h */,
+				05DADC3218F1D0FD00B96EE2 /* GAITrackedViewController.h */,
+				05DADC3318F1D0FD00B96EE2 /* GAITracker.h */,
+			);
+			name = "Google Analytics";
+			sourceTree = "<group>";
+		};
+		05DADC2B18F1D09500B96EE2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0518161E18F2255A0009648E /* Reflection.h */,
+				0518161F18F2255A0009648E /* Reflection.m */,
+				0518162118F236A50009648E /* ExperienceReflection.h */,
+				0518162218F236A50009648E /* ExperienceReflection.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		05DADC2C18F1D09C00B96EE2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0518160E18F1F9F80009648E /* Reflection Cell */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		05DADC2D18F1D09F00B96EE2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0518160B18F1F8800009648E /* ReflectionViewController.h */,
+				0518160C18F1F8800009648E /* ReflectionViewController.m */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,7 +342,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				05DADC0618F1C35800B96EE2 /* InfoPlist.strings in Resources */,
+				0518161618F21BDC0009648E /* bmw@2x.png in Resources */,
+				0518161818F21DC80009648E /* clownFish@2x.png in Resources */,
+				0518161418F1FE710009648E /* rainbowApple@2x.png in Resources */,
+				0518161A18F21F170009648E /* sky@2x.png in Resources */,
 				05DADC0E18F1C35800B96EE2 /* Images.xcassets in Resources */,
+				0518161C18F21F2C0009648E /* quotes@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +368,11 @@
 			files = (
 				05DADC0C18F1C35800B96EE2 /* AppDelegate.m in Sources */,
 				05DADC0818F1C35800B96EE2 /* main.m in Sources */,
+				0518162318F236A50009648E /* ExperienceReflection.m in Sources */,
+				0518162018F2255A0009648E /* Reflection.m in Sources */,
+				0518162618F237810009648E /* ExperienceReflectionCell.m in Sources */,
+				0518161118F1FA960009648E /* ReflectionCell.m in Sources */,
+				0518160D18F1F8800009648E /* ReflectionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,6 +492,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Troy Chmieleski/Troy Chmieleski-Prefix.pch";
 				INFOPLIST_FILE = "Troy Chmieleski/Troy Chmieleski-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/troy/Desktop/GoogleAnalyticsServicesiOS_3.06,
+					"$(PROJECT_DIR)/GoogleAnalytics",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -373,6 +510,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Troy Chmieleski/Troy Chmieleski-Prefix.pch";
 				INFOPLIST_FILE = "Troy Chmieleski/Troy Chmieleski-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/troy/Desktop/GoogleAnalyticsServicesiOS_3.06,
+					"$(PROJECT_DIR)/GoogleAnalytics",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -437,6 +579,7 @@
 				05DADC2618F1C35800B96EE2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		05DADC2718F1C35800B96EE2 /* Build configuration list for PBXNativeTarget "Troy ChmieleskiTests" */ = {
 			isa = XCConfigurationList;
@@ -445,6 +588,7 @@
 				05DADC2918F1C35800B96EE2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

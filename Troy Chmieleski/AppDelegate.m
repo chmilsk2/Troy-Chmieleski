@@ -8,6 +8,15 @@
 
 #import "AppDelegate.h"
 
+// Google Analytics
+#import "GAI.h"
+
+// Reflection
+#import "ReflectionViewController.h"
+
+#define GOOGLE_ANALYTICS_DISPATCH_INTERVAL 20
+#define GOOGLE_ANALYTICS_TRACKING_ID @"UA-49708481-1"
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -15,8 +24,32 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+	
+	// Google Analytics Setup
+	[self setUpGoogleAnalytics];
+	
+	ReflectionViewController *reflectionViewController = [ReflectionViewController new];
+	[self.window setRootViewController:reflectionViewController];
+	
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+#pragma mark - Setup Google Analytics
+
+- (void)setUpGoogleAnalytics {
+	// Optional: automatically send uncaught exceptions to Google Analytics
+	[[GAI sharedInstance] setTrackUncaughtExceptions:YES];
+	
+	// Optional: set Google Analytics dispatch interval to e.g. 20 seconds
+	[[GAI sharedInstance] setDispatchInterval:GOOGLE_ANALYTICS_DISPATCH_INTERVAL];
+	
+	// Optional: set Logger to VERBOSE for debug information
+	[[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
+	
+	// Initialize tracker. Replace with your tracking ID.
+	[[GAI sharedInstance] trackerWithTrackingId:GOOGLE_ANALYTICS_TRACKING_ID];
+	
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
