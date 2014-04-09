@@ -20,5 +20,4 @@
 
 - (CGFloat)heightForExperienceReflection:(ExperienceReflection *)experienceReflection;
 
-
 @end

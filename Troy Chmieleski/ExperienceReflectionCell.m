@@ -14,7 +14,7 @@
 #define EMPLOYER_LABEL_HORIZONTAL_MARGIN 14.0f
 #define EMPLOYER_LABEL_TOP_VERTICAL_MARGIN 30.0f
 
-// title lable
+// title label
 #define TITLE_LABEL_HORIZONTAL_MARGIN 14.0f
 #define TITLE_LABEL_TOP_VERTICAL_MARGIN 0.0f
 
@@ -136,6 +136,8 @@
 }
 
 - (void)layoutSubviews {
+	[super layoutSubviews];
+	
 	// employer label
 	CGRect employerRect = [self employerRectForEmployer:self.employerLabel.text];
 	
@@ -150,20 +152,6 @@
 	CGRect descriptionRect = [self descriptionRectForDescription:self.descriptionLabel.text];
 	
 	[self.descriptionLabel setFrame:CGRectMake(14.0f, self.titleLabel.frame.origin.y + self.titleLabel.bounds.size.height + DESCRIPTION_LABEL_VERTICAL_MARGIN, descriptionRect.size.width, descriptionRect.size.height)];
-	
-	// reflection background view
-	[self.reflectionBackgroundView setFrame:self.bounds];
-	[self.backgroundTintView setFrame:self.bounds];
-	
-	UIImage *backgroundImage = [self reflectionBackgroundViewImage];
-	
-	CGPoint contentOffset;
-	
-	if ([self.delegate respondsToSelector:@selector(contentOffsetForReflectionCell:)]) {
-		contentOffset = [self.delegate contentOffsetForReflectionCell:self];
-	}
-	
-	[self.backgroundImageView setFrame:CGRectMake(contentOffset.x, contentOffset.y, backgroundImage.size.width, backgroundImage.size.height)];
 }
 
 @end
