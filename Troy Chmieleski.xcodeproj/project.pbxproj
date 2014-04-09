@@ -13,10 +13,18 @@
 		0518161618F21BDC0009648E /* bmw@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0518161518F21BDC0009648E /* bmw@2x.png */; };
 		0518161818F21DC80009648E /* clownFish@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0518161718F21DC80009648E /* clownFish@2x.png */; };
 		0518161A18F21F170009648E /* sky@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0518161918F21F170009648E /* sky@2x.png */; };
-		0518161C18F21F2C0009648E /* quotes@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0518161B18F21F2C0009648E /* quotes@2x.png */; };
 		0518162018F2255A0009648E /* Reflection.m in Sources */ = {isa = PBXBuildFile; fileRef = 0518161F18F2255A0009648E /* Reflection.m */; };
 		0518162318F236A50009648E /* ExperienceReflection.m in Sources */ = {isa = PBXBuildFile; fileRef = 0518162218F236A50009648E /* ExperienceReflection.m */; };
 		0518162618F237810009648E /* ExperienceReflectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0518162518F237810009648E /* ExperienceReflectionCell.m */; };
+		0525DED018F27338001ADD5D /* EducationReflectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0525DECF18F27338001ADD5D /* EducationReflectionCell.m */; };
+		0525DED318F2734F001ADD5D /* EducationReflection.m in Sources */ = {isa = PBXBuildFile; fileRef = 0525DED218F2734F001ADD5D /* EducationReflection.m */; };
+		0539202A18F4A179008DDD64 /* ComposeGoalButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0539202918F4A179008DDD64 /* ComposeGoalButton@2x.png */; };
+		0539202C18F4A22D008DDD64 /* ComposeGoalButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0539202B18F4A22D008DDD64 /* ComposeGoalButton.png */; };
+		0539203418F4B0CB008DDD64 /* MenuButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0539203218F4B0CB008DDD64 /* MenuButton@2x.png */; };
+		0539203518F4B0CB008DDD64 /* MenuButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0539203318F4B0CB008DDD64 /* MenuButton.png */; };
+		0539203818F4C624008DDD64 /* Menu.m in Sources */ = {isa = PBXBuildFile; fileRef = 0539203718F4C624008DDD64 /* Menu.m */; };
+		0539203E18F4D547008DDD64 /* MenuProfileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0539203D18F4D547008DDD64 /* MenuProfileCell.m */; };
+		0539204118F4D556008DDD64 /* MenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0539204018F4D556008DDD64 /* MenuCell.m */; };
 		05DADBFC18F1C35800B96EE2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DADBFB18F1C35800B96EE2 /* Foundation.framework */; };
 		05DADBFE18F1C35800B96EE2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DADBFD18F1C35800B96EE2 /* CoreGraphics.framework */; };
 		05DADC0018F1C35800B96EE2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DADBFF18F1C35800B96EE2 /* UIKit.framework */; };
@@ -55,13 +63,26 @@
 		0518161518F21BDC0009648E /* bmw@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bmw@2x.png"; sourceTree = "<group>"; };
 		0518161718F21DC80009648E /* clownFish@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clownFish@2x.png"; sourceTree = "<group>"; };
 		0518161918F21F170009648E /* sky@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sky@2x.png"; sourceTree = "<group>"; };
-		0518161B18F21F2C0009648E /* quotes@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "quotes@2x.png"; sourceTree = "<group>"; };
 		0518161E18F2255A0009648E /* Reflection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reflection.h; sourceTree = "<group>"; };
 		0518161F18F2255A0009648E /* Reflection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reflection.m; sourceTree = "<group>"; };
 		0518162118F236A50009648E /* ExperienceReflection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExperienceReflection.h; sourceTree = "<group>"; };
 		0518162218F236A50009648E /* ExperienceReflection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExperienceReflection.m; sourceTree = "<group>"; };
 		0518162418F237810009648E /* ExperienceReflectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExperienceReflectionCell.h; sourceTree = "<group>"; };
 		0518162518F237810009648E /* ExperienceReflectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExperienceReflectionCell.m; sourceTree = "<group>"; };
+		0525DECE18F27338001ADD5D /* EducationReflectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EducationReflectionCell.h; sourceTree = "<group>"; };
+		0525DECF18F27338001ADD5D /* EducationReflectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EducationReflectionCell.m; sourceTree = "<group>"; };
+		0525DED118F2734F001ADD5D /* EducationReflection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EducationReflection.h; sourceTree = "<group>"; };
+		0525DED218F2734F001ADD5D /* EducationReflection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EducationReflection.m; sourceTree = "<group>"; };
+		0539202918F4A179008DDD64 /* ComposeGoalButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ComposeGoalButton@2x.png"; sourceTree = "<group>"; };
+		0539202B18F4A22D008DDD64 /* ComposeGoalButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ComposeGoalButton.png; sourceTree = "<group>"; };
+		0539203218F4B0CB008DDD64 /* MenuButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MenuButton@2x.png"; sourceTree = "<group>"; };
+		0539203318F4B0CB008DDD64 /* MenuButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MenuButton.png; sourceTree = "<group>"; };
+		0539203618F4C624008DDD64 /* Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Menu.h; sourceTree = "<group>"; };
+		0539203718F4C624008DDD64 /* Menu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Menu.m; sourceTree = "<group>"; };
+		0539203C18F4D547008DDD64 /* MenuProfileCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuProfileCell.h; sourceTree = "<group>"; };
+		0539203D18F4D547008DDD64 /* MenuProfileCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuProfileCell.m; sourceTree = "<group>"; };
+		0539203F18F4D556008DDD64 /* MenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuCell.h; sourceTree = "<group>"; };
+		0539204018F4D556008DDD64 /* MenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuCell.m; sourceTree = "<group>"; };
 		05DADBF818F1C35800B96EE2 /* Troy Chmieleski.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Troy Chmieleski.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05DADBFB18F1C35800B96EE2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		05DADBFD18F1C35800B96EE2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -128,6 +149,8 @@
 				0518161018F1FA960009648E /* ReflectionCell.m */,
 				0518162418F237810009648E /* ExperienceReflectionCell.h */,
 				0518162518F237810009648E /* ExperienceReflectionCell.m */,
+				0525DECE18F27338001ADD5D /* EducationReflectionCell.h */,
+				0525DECF18F27338001ADD5D /* EducationReflectionCell.m */,
 			);
 			name = "Reflection Cell";
 			sourceTree = "<group>";
@@ -135,8 +158,59 @@
 		0518161218F1FE610009648E /* Reflection Images */ = {
 			isa = PBXGroup;
 			children = (
+				0518161318F1FE710009648E /* rainbowApple@2x.png */,
+				0518161518F21BDC0009648E /* bmw@2x.png */,
+				0518161718F21DC80009648E /* clownFish@2x.png */,
+				0518161918F21F170009648E /* sky@2x.png */,
 			);
 			name = "Reflection Images";
+			sourceTree = "<group>";
+		};
+		0539201818F49514008DDD64 /* Goal Button */ = {
+			isa = PBXGroup;
+			children = (
+				0539202B18F4A22D008DDD64 /* ComposeGoalButton.png */,
+				0539202918F4A179008DDD64 /* ComposeGoalButton@2x.png */,
+			);
+			name = "Goal Button";
+			sourceTree = "<group>";
+		};
+		0539203118F4AEC1008DDD64 /* Menu Button */ = {
+			isa = PBXGroup;
+			children = (
+				0539203218F4B0CB008DDD64 /* MenuButton@2x.png */,
+				0539203318F4B0CB008DDD64 /* MenuButton.png */,
+			);
+			name = "Menu Button";
+			sourceTree = "<group>";
+		};
+		0539203918F4C628008DDD64 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				0539203A18F4D522008DDD64 /* Menu Profile Cell */,
+				0539203B18F4D52B008DDD64 /* Menu Cell */,
+				0539203618F4C624008DDD64 /* Menu.h */,
+				0539203718F4C624008DDD64 /* Menu.m */,
+			);
+			name = Menu;
+			sourceTree = "<group>";
+		};
+		0539203A18F4D522008DDD64 /* Menu Profile Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0539203C18F4D547008DDD64 /* MenuProfileCell.h */,
+				0539203D18F4D547008DDD64 /* MenuProfileCell.m */,
+			);
+			name = "Menu Profile Cell";
+			sourceTree = "<group>";
+		};
+		0539203B18F4D52B008DDD64 /* Menu Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0539203F18F4D556008DDD64 /* MenuCell.h */,
+				0539204018F4D556008DDD64 /* MenuCell.m */,
+			);
+			name = "Menu Cell";
 			sourceTree = "<group>";
 		};
 		05DADBEF18F1C35800B96EE2 = {
@@ -193,12 +267,9 @@
 		05DADC0218F1C35800B96EE2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0539203118F4AEC1008DDD64 /* Menu Button */,
+				0539201818F49514008DDD64 /* Goal Button */,
 				0518161218F1FE610009648E /* Reflection Images */,
-				0518161318F1FE710009648E /* rainbowApple@2x.png */,
-				0518161518F21BDC0009648E /* bmw@2x.png */,
-				0518161718F21DC80009648E /* clownFish@2x.png */,
-				0518161B18F21F2C0009648E /* quotes@2x.png */,
-				0518161918F21F170009648E /* sky@2x.png */,
 				05DADC0318F1C35800B96EE2 /* Troy Chmieleski-Info.plist */,
 				05DADC0418F1C35800B96EE2 /* InfoPlist.strings */,
 				05DADC0718F1C35800B96EE2 /* main.m */,
@@ -245,6 +316,8 @@
 				0518161F18F2255A0009648E /* Reflection.m */,
 				0518162118F236A50009648E /* ExperienceReflection.h */,
 				0518162218F236A50009648E /* ExperienceReflection.m */,
+				0525DED118F2734F001ADD5D /* EducationReflection.h */,
+				0525DED218F2734F001ADD5D /* EducationReflection.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -252,6 +325,7 @@
 		05DADC2C18F1D09C00B96EE2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0539203918F4C628008DDD64 /* Menu */,
 				0518160E18F1F9F80009648E /* Reflection Cell */,
 			);
 			name = View;
@@ -341,13 +415,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0539202A18F4A179008DDD64 /* ComposeGoalButton@2x.png in Resources */,
 				05DADC0618F1C35800B96EE2 /* InfoPlist.strings in Resources */,
+				0539203418F4B0CB008DDD64 /* MenuButton@2x.png in Resources */,
 				0518161618F21BDC0009648E /* bmw@2x.png in Resources */,
 				0518161818F21DC80009648E /* clownFish@2x.png in Resources */,
 				0518161418F1FE710009648E /* rainbowApple@2x.png in Resources */,
+				0539203518F4B0CB008DDD64 /* MenuButton.png in Resources */,
+				0539202C18F4A22D008DDD64 /* ComposeGoalButton.png in Resources */,
 				0518161A18F21F170009648E /* sky@2x.png in Resources */,
 				05DADC0E18F1C35800B96EE2 /* Images.xcassets in Resources */,
-				0518161C18F21F2C0009648E /* quotes@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,12 +443,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0539203818F4C624008DDD64 /* Menu.m in Sources */,
 				05DADC0C18F1C35800B96EE2 /* AppDelegate.m in Sources */,
+				0539204118F4D556008DDD64 /* MenuCell.m in Sources */,
 				05DADC0818F1C35800B96EE2 /* main.m in Sources */,
 				0518162318F236A50009648E /* ExperienceReflection.m in Sources */,
+				0525DED018F27338001ADD5D /* EducationReflectionCell.m in Sources */,
 				0518162018F2255A0009648E /* Reflection.m in Sources */,
+				0539203E18F4D547008DDD64 /* MenuProfileCell.m in Sources */,
 				0518162618F237810009648E /* ExperienceReflectionCell.m in Sources */,
 				0518161118F1FA960009648E /* ReflectionCell.m in Sources */,
+				0525DED318F2734F001ADD5D /* EducationReflection.m in Sources */,
 				0518160D18F1F8800009648E /* ReflectionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
