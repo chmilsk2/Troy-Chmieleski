@@ -11,7 +11,7 @@
 #import "Reflection.h"
 
 // background tint view
-#define BACKGROUND_TINT_VIEW_OPACITY 0.3
+#define BACKGROUND_TINT_VIEW_OPACITY 0.4
 
 @implementation ReflectionCell
 
@@ -61,6 +61,22 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void)layoutSubviews {
+	// reflection background view
+	[self.reflectionBackgroundView setFrame:self.bounds];
+	[self.backgroundTintView setFrame:self.bounds];
+	
+	UIImage *backgroundImage = [self reflectionBackgroundViewImage];
+	
+	CGPoint contentOffset;
+	
+	if ([self.delegate respondsToSelector:@selector(contentOffsetForReflectionCell:)]) {
+		contentOffset = [self.delegate contentOffsetForReflectionCell:self];
+	}
+	
+	[self.backgroundImageView setFrame:CGRectMake(contentOffset.x, contentOffset.y, backgroundImage.size.width, backgroundImage.size.height)];
 }
 
 @end
