@@ -8,6 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
+@class MenuProfileCell;
+
+@protocol MenuProfileCellDelegate <NSObject>
+
+- (CGPoint)contentOffsetForMenuProfileCell:(MenuProfileCell *)menuProfileCell;
+
+@end
+
 @interface MenuProfileCell : UITableViewCell
+
+@property (weak) id <MenuProfileCellDelegate> delegate;
+
+- (CGFloat)height;
+- (void)hideBackgroundImageView;
+- (void)showBackgroundImageView;
+- (void)animate;
 
 @end

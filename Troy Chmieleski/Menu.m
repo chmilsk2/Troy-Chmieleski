@@ -11,14 +11,21 @@
 // Menu background view
 #define MENU_BACKGROUND_VIEW_OPACITY 0.6f
 
+// Menu animation
+#define MENU_ANIMATION_DURATION 0.3f
+
 @interface Menu () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UIView *menuView;
 @property (nonatomic, strong) UIView *menuBackgroundView;
+@property (nonatomic, strong) UITapGestureRecognizer *backgroundTapGestureRecognizer;
 
 @end
 
-@implementation Menu
+@implementation Menu {
+	BOOL _isShowing;
+	BOOL _isHiding;
+}
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -28,25 +35,79 @@
 		[self makeKeyAndVisible];
 		
 		[self addSubview:self.menuBackgroundView];
-		//[self addSubview:self.menuView];
-		[self addSubview:self.menuTableView];
+		[self addSubview:self.menuView];
 		
-		[self hide];
+		[self setHidden:YES];
     }
 	
     return self;
 }
 
+#pragma mark - Scroll view delegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+	if ([self.menuDelegate respondsToSelector:@selector(menu:scrollViewDidScroll:)]) {
+		[self.menuDelegate menu:self scrollViewDidScroll:scrollView];
+	}
+}
+
+#pragma mark - Gesture recognizers
+
+- (void)backgroundTapped:(UITapGestureRecognizer *)tapGestureRecognizer {
+	NSLog(@"background tapped");
+	
+	[self hide];
+}
+
+- (void)menuPanned:(UIPanGestureRecognizer *)panGestureRecognizer {
+	NSLog(@"menu panned");
+}
+
 #pragma mark - Show 
 
 - (void)show {
+	_isShowing = YES;
+	
 	[self setHidden:NO];
+	
+	[UIView animateWithDuration:MENU_ANIMATION_DURATION animations:^{
+		CGRect menuViewFrame = self.menuView.frame;
+		menuViewFrame.origin.x = 0;
+		[self.menuView setFrame:menuViewFrame];
+		[self.menuBackgroundView setAlpha:MENU_BACKGROUND_VIEW_OPACITY];
+	}];
+	
+	NSTimer *animationTimer = [NSTimer timerWithTimeInterval:MENU_ANIMATION_DURATION target:self selector:@selector(finishedAnimation:) userInfo:nil repeats:NO];
+	[[NSRunLoop currentRunLoop] addTimer:animationTimer forMode:NSRunLoopCommonModes];
 }
 
 #pragma mark - Hide
 
 - (void)hide {
-	[self setHidden:YES];
+	_isHiding = YES;
+	
+	[UIView animateWithDuration:MENU_ANIMATION_DURATION animations:^{
+		CGRect menuViewFrame = self.menuView.frame;
+		menuViewFrame.origin.x = -self.menuView.frame.size.width;
+		[self.menuView setFrame:menuViewFrame];
+		[self.menuBackgroundView setAlpha:0];
+	}];
+	
+	NSTimer *animationTimer = [NSTimer timerWithTimeInterval:MENU_ANIMATION_DURATION target:self selector:@selector(finishedAnimation:) userInfo:nil repeats:NO];
+	[[NSRunLoop currentRunLoop] addTimer:animationTimer forMode:NSRunLoopCommonModes];
+}
+
+#pragma mark - Animation finished
+
+- (void)finishedAnimation:(NSTimer *)timer {
+	if (_isShowing) {
+		_isShowing = NO;
+	}
+	
+	else if (_isHiding) {
+		self.hidden = YES;
+		_isHiding = NO;
+	}
 }
 
 #pragma mark - Menu tableview
@@ -54,6 +115,11 @@
 - (UITableView *)menuTableView {
 	if (!_menuTableView) {
 		_menuTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+		
+		UIImageView *backgroundImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Earth"]];
+		[backgroundImageView setContentMode:UIViewContentModeTopLeft];
+		
+		[_menuTableView setBackgroundView:backgroundImageView];
 		[_menuTableView setDataSource:self];
 		[_menuTableView setDelegate:self];
 	}
@@ -118,6 +184,8 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	if (!_menuView) {
 		_menuView = [[UIView alloc] initWithFrame:CGRectZero];
 		[_menuView setBackgroundColor:[UIColor whiteColor]];
+		
+		[_menuView addSubview:self.menuTableView];
 	}
 	
 	return _menuView;
@@ -128,11 +196,22 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 - (UIView *)menuBackgroundView {
 	if (!_menuBackgroundView) {
 		_menuBackgroundView = [[UIView alloc] initWithFrame:self.frame];
+		[_menuBackgroundView addGestureRecognizer:self.backgroundTapGestureRecognizer];
 		[_menuBackgroundView setBackgroundColor:[UIColor blackColor]];
-		[_menuBackgroundView setAlpha:MENU_BACKGROUND_VIEW_OPACITY];
+		[_menuBackgroundView setAlpha:0];
 	}
 	
 	return _menuBackgroundView;
+}
+
+#pragma mark - Background tap gesture recognizer
+
+- (UITapGestureRecognizer *)backgroundTapGestureRecognizer {
+	if (!_backgroundTapGestureRecognizer) {
+		_backgroundTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backgroundTapped:)];
+	}
+	
+	return _backgroundTapGestureRecognizer;
 }
 
 - (void)layoutSubviews {
@@ -155,8 +234,15 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 		menuTopVerticalMargin = [self.menuDelegate verticalTopMarginForMenu:self];
 	}
 	
-	[self.menuView setFrame:CGRectMake(0, menuTopVerticalMargin, menuWidth, menuHeight)];
-	[self.menuTableView setFrame:CGRectMake(0, menuTopVerticalMargin, menuWidth, menuHeight)];
+	CGFloat xPos = -menuWidth;
+	
+	if (!self.hidden) {
+		xPos = 0;
+	}
+	
+	// menu view
+	[self.menuView setFrame:CGRectMake(xPos, menuTopVerticalMargin, menuWidth, menuHeight)];
+	[self.menuTableView setFrame:self.menuView.bounds];
 }
 
 @end

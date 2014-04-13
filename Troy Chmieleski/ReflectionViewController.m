@@ -66,7 +66,7 @@ typedef NS_ENUM(NSInteger, MenuItemType) {
 #define MenuCellReuseIdentifier @"Menu Cell Reuse Identifier"
 
 // Menu profile cell
-#define MENU_PROFILE_ROW_HEIGHT 100.0f
+#define MENU_PROFILE_ROW_HEIGHT 188.0f
 
 // Menu cell
 #define MENU_ITEM_ROW_HEIGHT 60.0f
@@ -107,7 +107,7 @@ typedef NS_ENUM(NSInteger, SectionType) {
 	SectionTypeSkills = 3
 };
 
-@interface ReflectionViewController () <ReflectionCelDelegate, MenuDataSource, MenuDelegate>
+@interface ReflectionViewController () <MenuProfileCellDelegate, ReflectionCelDelegate, MenuDataSource, MenuDelegate>
 
 @property (nonatomic, strong) NSMutableArray *experienceReflections;
 @property (nonatomic, strong) NSMutableArray *educationReflections;
@@ -139,8 +139,6 @@ typedef NS_ENUM(NSInteger, SectionType) {
 		[self.view addSubview:self.reflectionTableView];
 		[self.view addSubview:self.menuButton];
 		[self.view addSubview:self.composeGoalButton];
-		
-		[self.menu show];
 		
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(contentSizeDidChange:) name:UIContentSizeCategoryDidChangeNotification object:nil];
     }
@@ -343,15 +341,15 @@ typedef NS_ENUM(NSInteger, SectionType) {
 	NSUInteger numberOfBackgroundImages = 4;
 	
 	if ([self reflectionCellIndexForIndexPath:indexPath] % numberOfBackgroundImages == 0) {
-		imageName = @"rainbowApple";
+		imageName = @"App Icon";
 	}
 	
 	else if ([self reflectionCellIndexForIndexPath:indexPath] % numberOfBackgroundImages == 1){
-		imageName = @"bmw";
+		imageName = @"Deep Blue Space";
 	}
 	
 	else if ([self reflectionCellIndexForIndexPath:indexPath] % numberOfBackgroundImages == 2) {
-		imageName = @"clownFish";
+		imageName = @"Apple A6";
 	}
 	
 	else if ([self reflectionCellIndexForIndexPath:indexPath] % numberOfBackgroundImages == 3) {
@@ -532,6 +530,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	
 	if (indexPath.section == MenuSectionTypeProfile) {
 		MenuProfileCell *menuProfileCell = [menuTableView dequeueReusableCellWithIdentifier:MenuProfileCellReuseIdentifier forIndexPath:indexPath];
+		[menuProfileCell setDelegate:self];
 		
 		[self configureMenuProfileCell:menuProfileCell forRowAtIndexPath:indexPath];
 		
@@ -562,9 +561,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 #pragma mark - Menu delegate 
 
 - (CGFloat)widthForMenu:(Menu *)menu {
-	CGFloat menuWidth = 0;
-	
-	menuWidth = kScreenWidth - MENU_HORIZONTAL_MARGIN;
+	CGFloat menuWidth = kScreenWidth - MENU_HORIZONTAL_MARGIN;
 	
 	return menuWidth;
 }
@@ -585,11 +582,45 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	return verticalMargin;
 }
 
+- (void)menu:(Menu *)menu scrollViewDidScroll:(UIScrollView *)scrollView {
+	NSArray *visibleCells = [self.menu.menuTableView visibleCells];
+	
+	CGPoint offset = scrollView.contentOffset;
+    CGRect bounds = scrollView.bounds;
+    CGSize size = scrollView.contentSize;
+    UIEdgeInsets inset = scrollView.contentInset;
+    float y = offset.y + bounds.size.height - inset.bottom;
+    float h = size.height;
+	
+	MenuProfileCell *menuProfileCell = (MenuProfileCell *)[menu.menuTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:MenuSectionTypeProfile]];
+	
+    if(y > h) {
+		[self.menu.menuTableView.backgroundView setHidden:YES];
+		[self.menu.menuTableView setBackgroundColor:[UIColor whiteColor]];
+		[menuProfileCell showBackgroundImageView];
+    }
+	
+	else {
+		[self.menu.menuTableView.backgroundView setHidden:NO];
+		[menuProfileCell hideBackgroundImageView];
+	}
+	
+	for (UITableViewCell *visibleCell in visibleCells) {
+		if ([visibleCell isKindOfClass:[MenuProfileCell class]]) {
+			MenuProfileCell *menuProfileCell = (MenuProfileCell *)visibleCell;
+			
+			[menuProfileCell layoutSubviews];
+		}
+	}
+}
+
 - (CGFloat)menuTableView:(UITableView *)menuTableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 	CGFloat rowHeight = 0;
 	
 	if (indexPath.section == MenuSectionTypeProfile) {
-		rowHeight = MENU_PROFILE_ROW_HEIGHT;
+		MenuProfileCell *prototypicalMenuProfileCell = [menuTableView dequeueReusableCellWithIdentifier:MenuProfileCellReuseIdentifier];
+		
+		rowHeight = [prototypicalMenuProfileCell height];
 	}
 	
 	else if (indexPath.section == MenuSectionTypeItem) {
@@ -600,7 +631,19 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 - (void)menuTableView:(UITableView *)menuTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-#warning TODO: imeplement this
+	if (indexPath.section == MenuSectionTypeItem) {
+		
+	}
+}
+
+#pragma mark - Menu profile cell delegate
+
+- (CGPoint)contentOffsetForMenuProfileCell:(MenuProfileCell *)menuProfileCell {
+	CGRect menuProfileCellRect = [self.menu.menuTableView rectForRowAtIndexPath:[self.menu.menuTableView indexPathForCell:menuProfileCell]];
+	
+	CGPoint contentOffset = CGPointMake(menuProfileCellRect.origin.x, self.menu.menuTableView.contentOffset.y);
+	
+	return contentOffset;
 }
 
 #pragma mark - Menu item
@@ -651,6 +694,8 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
 - (void)menuButtonTouched:(id)sender {
 	NSLog(@"menu button touched");
+	
+	[self.menu show];
 }
 
 #pragma mark - Compose goal button

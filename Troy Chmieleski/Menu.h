@@ -25,6 +25,7 @@
 - (CGFloat)verticalTopMarginForMenu:(Menu *)menu;
 - (CGFloat)menuTableView:(UITableView *)menuTableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 - (void)menuTableView:(UITableView *)menuTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+- (void)menu:(Menu *)menu scrollViewDidScroll:(UIScrollView *)scrollView;
 
 @end
 

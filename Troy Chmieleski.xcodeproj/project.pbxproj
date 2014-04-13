@@ -25,6 +25,18 @@
 		0539203818F4C624008DDD64 /* Menu.m in Sources */ = {isa = PBXBuildFile; fileRef = 0539203718F4C624008DDD64 /* Menu.m */; };
 		0539203E18F4D547008DDD64 /* MenuProfileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0539203D18F4D547008DDD64 /* MenuProfileCell.m */; };
 		0539204118F4D556008DDD64 /* MenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0539204018F4D556008DDD64 /* MenuCell.m */; };
+		054294E018FA702A0071B322 /* Deep Blue Space@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 054294DF18FA702A0071B322 /* Deep Blue Space@2x.png */; };
+		054294E218FA70BC0071B322 /* Apple A6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 054294E118FA70BC0071B322 /* Apple A6@2x.png */; };
+		054294E418FA73660071B322 /* Donebox Screen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 054294E318FA73660071B322 /* Donebox Screen@2x.png */; };
+		054294E618FA74060071B322 /* Donebox Home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 054294E518FA74060071B322 /* Donebox Home@2x.png */; };
+		054294E818FA75030071B322 /* Planet@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 054294E718FA75030071B322 /* Planet@2x.png */; };
+		054294EA18FA75800071B322 /* Blueprint@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 054294E918FA75800071B322 /* Blueprint@2x.png */; };
+		054294EC18FA760C0071B322 /* Planet Up Close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 054294EB18FA760C0071B322 /* Planet Up Close@2x.png */; };
+		054294EE18FA76750071B322 /* Earth@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 054294ED18FA76750071B322 /* Earth@2x.png */; };
+		054294F018FA77040071B322 /* Solar System@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 054294EF18FA77040071B322 /* Solar System@2x.png */; };
+		054294F218FA77730071B322 /* Microprocessor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 054294F118FA77730071B322 /* Microprocessor@2x.png */; };
+		054294F418FA77E80071B322 /* App Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 054294F318FA77E80071B322 /* App Icon@2x.png */; };
+		05AC71D418FA309E00117C91 /* Troy Chmieleski Profile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05AC71D318FA309E00117C91 /* Troy Chmieleski Profile@2x.png */; };
 		05DADBFC18F1C35800B96EE2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DADBFB18F1C35800B96EE2 /* Foundation.framework */; };
 		05DADBFE18F1C35800B96EE2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DADBFD18F1C35800B96EE2 /* CoreGraphics.framework */; };
 		05DADC0018F1C35800B96EE2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DADBFF18F1C35800B96EE2 /* UIKit.framework */; };
@@ -83,6 +95,18 @@
 		0539203D18F4D547008DDD64 /* MenuProfileCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuProfileCell.m; sourceTree = "<group>"; };
 		0539203F18F4D556008DDD64 /* MenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuCell.h; sourceTree = "<group>"; };
 		0539204018F4D556008DDD64 /* MenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuCell.m; sourceTree = "<group>"; };
+		054294DF18FA702A0071B322 /* Deep Blue Space@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Deep Blue Space@2x.png"; sourceTree = "<group>"; };
+		054294E118FA70BC0071B322 /* Apple A6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Apple A6@2x.png"; sourceTree = "<group>"; };
+		054294E318FA73660071B322 /* Donebox Screen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Donebox Screen@2x.png"; sourceTree = "<group>"; };
+		054294E518FA74060071B322 /* Donebox Home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Donebox Home@2x.png"; sourceTree = "<group>"; };
+		054294E718FA75030071B322 /* Planet@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Planet@2x.png"; sourceTree = "<group>"; };
+		054294E918FA75800071B322 /* Blueprint@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Blueprint@2x.png"; sourceTree = "<group>"; };
+		054294EB18FA760C0071B322 /* Planet Up Close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Planet Up Close@2x.png"; sourceTree = "<group>"; };
+		054294ED18FA76750071B322 /* Earth@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Earth@2x.png"; sourceTree = "<group>"; };
+		054294EF18FA77040071B322 /* Solar System@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Solar System@2x.png"; sourceTree = "<group>"; };
+		054294F118FA77730071B322 /* Microprocessor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Microprocessor@2x.png"; sourceTree = "<group>"; };
+		054294F318FA77E80071B322 /* App Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "App Icon@2x.png"; sourceTree = "<group>"; };
+		05AC71D318FA309E00117C91 /* Troy Chmieleski Profile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Troy Chmieleski Profile@2x.png"; sourceTree = "<group>"; };
 		05DADBF818F1C35800B96EE2 /* Troy Chmieleski.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Troy Chmieleski.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05DADBFB18F1C35800B96EE2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		05DADBFD18F1C35800B96EE2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -158,10 +182,21 @@
 		0518161218F1FE610009648E /* Reflection Images */ = {
 			isa = PBXGroup;
 			children = (
+				054294F318FA77E80071B322 /* App Icon@2x.png */,
+				054294F118FA77730071B322 /* Microprocessor@2x.png */,
+				054294EF18FA77040071B322 /* Solar System@2x.png */,
 				0518161318F1FE710009648E /* rainbowApple@2x.png */,
 				0518161518F21BDC0009648E /* bmw@2x.png */,
 				0518161718F21DC80009648E /* clownFish@2x.png */,
 				0518161918F21F170009648E /* sky@2x.png */,
+				054294DF18FA702A0071B322 /* Deep Blue Space@2x.png */,
+				054294E118FA70BC0071B322 /* Apple A6@2x.png */,
+				054294E318FA73660071B322 /* Donebox Screen@2x.png */,
+				054294E518FA74060071B322 /* Donebox Home@2x.png */,
+				054294E718FA75030071B322 /* Planet@2x.png */,
+				054294E918FA75800071B322 /* Blueprint@2x.png */,
+				054294EB18FA760C0071B322 /* Planet Up Close@2x.png */,
+				054294ED18FA76750071B322 /* Earth@2x.png */,
 			);
 			name = "Reflection Images";
 			sourceTree = "<group>";
@@ -267,6 +302,7 @@
 		05DADC0218F1C35800B96EE2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				05AC71D318FA309E00117C91 /* Troy Chmieleski Profile@2x.png */,
 				0539203118F4AEC1008DDD64 /* Menu Button */,
 				0539201818F49514008DDD64 /* Goal Button */,
 				0518161218F1FE610009648E /* Reflection Images */,
@@ -415,15 +451,27 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				054294F418FA77E80071B322 /* App Icon@2x.png in Resources */,
 				0539202A18F4A179008DDD64 /* ComposeGoalButton@2x.png in Resources */,
+				054294F218FA77730071B322 /* Microprocessor@2x.png in Resources */,
 				05DADC0618F1C35800B96EE2 /* InfoPlist.strings in Resources */,
+				05AC71D418FA309E00117C91 /* Troy Chmieleski Profile@2x.png in Resources */,
 				0539203418F4B0CB008DDD64 /* MenuButton@2x.png in Resources */,
+				054294E218FA70BC0071B322 /* Apple A6@2x.png in Resources */,
 				0518161618F21BDC0009648E /* bmw@2x.png in Resources */,
+				054294EA18FA75800071B322 /* Blueprint@2x.png in Resources */,
+				054294E018FA702A0071B322 /* Deep Blue Space@2x.png in Resources */,
+				054294EC18FA760C0071B322 /* Planet Up Close@2x.png in Resources */,
 				0518161818F21DC80009648E /* clownFish@2x.png in Resources */,
+				054294F018FA77040071B322 /* Solar System@2x.png in Resources */,
+				054294E618FA74060071B322 /* Donebox Home@2x.png in Resources */,
 				0518161418F1FE710009648E /* rainbowApple@2x.png in Resources */,
+				054294E418FA73660071B322 /* Donebox Screen@2x.png in Resources */,
 				0539203518F4B0CB008DDD64 /* MenuButton.png in Resources */,
 				0539202C18F4A22D008DDD64 /* ComposeGoalButton.png in Resources */,
+				054294EE18FA76750071B322 /* Earth@2x.png in Resources */,
 				0518161A18F21F170009648E /* sky@2x.png in Resources */,
+				054294E818FA75030071B322 /* Planet@2x.png in Resources */,
 				05DADC0E18F1C35800B96EE2 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

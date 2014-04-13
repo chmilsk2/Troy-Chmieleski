@@ -40,6 +40,7 @@
 	if (!_itemLabel) {
 		_itemLabel = [[UILabel alloc] initWithFrame:CGRectZero];
 		[_itemLabel setFont:[self itemLabelFont]];
+		[_itemLabel setTextAlignment:NSTextAlignmentLeft];
 	}
 	
 	return _itemLabel;
