@@ -17,8 +17,9 @@
 @property (nonatomic, strong) UILabel *minorLabel;
 @property (nonatomic, strong) UILabel *expectedGraduationDateLabel;
 @property (nonatomic, strong) UILabel *gpaLabel;
-@property (nonatomic, strong) UITextView *descriptionTextView;
+@property (nonatomic, strong) NSArray *descriptionLabels;
 
 - (CGFloat)heightForEducationReflection:(EducationReflection *)educationReflection;
+- (void)configureDescriptionLabelsForNumberOfDescriptionLabels:(NSInteger)numberOfDescriptionLabels;
 
 @end

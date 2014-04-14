@@ -23,11 +23,24 @@
 
 // expected graduation date label
 #define EXPECTED_GRADUATION_DATE_LABEL_HORIZONTAL_MARGIN 14.0f
-#define EXPECTED_GRADUATION_DATE_LABEL_VERTICAL_MARGIN 30.0f
+#define EXPECTED_GRADUATION_DATE_LABEL_VERTICAL_MARGIN 0.0f
 
 // gpa label
 #define GPA_LABEL_HORIZONTAL_MARGIN 14.0f
 #define GPA_LABEL_TOP_VERTICAL_MARGIN 0.0f
+
+// bullet label
+#define BULLET_LABEL_TEXT @"\u2022"
+
+// description label
+#define DESCRIPTION_LABEL_HORIZONTAL_MARGIN 14.0f
+#define DESCRIPTION_LABELS_VERTICAL_MARGIN 14.0f
+
+@interface EducationReflectionCell ()
+
+@property (nonatomic, strong) NSArray *descriptionBulletLabels;
+
+@end
 
 @implementation EducationReflectionCell
 
@@ -40,7 +53,6 @@
 		[self addSubview:self.minorLabel];
 		[self addSubview:self.expectedGraduationDateLabel];
 		[self addSubview:self.gpaLabel];
-		[self addSubview:self.descriptionTextView];
 	}
 	
 	return self;
@@ -58,42 +70,48 @@
 	height += schoolRect.size.height;
 	
 	// major label
-	height += MAJOR_LABEL_TOP_VERTICAL_MARGIN;
-	
 	CGRect majorRect = [self majorRectForMajor:educationReflection.major];
-	height += majorRect.size.height;
 	
 	// minor label
-	height += MINOR_LABEL_TOP_VERTICAL_MARGIN;
-	
 	CGRect minorRect = [self minorRectForMinor:educationReflection.minor];
-	height += minorRect.size.height;
 	
 	// expected graduation date label
-	height += EXPECTED_GRADUATION_DATE_LABEL_VERTICAL_MARGIN;
-	
 	CGRect expectedGraduationDateRect = [self expectedGraduationDateRectForExpectedGraduationDate:educationReflection.expectedGraduationDate];
-	height += expectedGraduationDateRect.size.height;
 	
 	// gpa label
-	height += GPA_LABEL_TOP_VERTICAL_MARGIN;
-	
 	CGRect gpaRect = [self gpaRectForGpa:educationReflection.gpa];
-	height += gpaRect.size.height;
+	
+	if (majorRect.size.height > expectedGraduationDateRect.size.height) {
+		height += majorRect.size.height;
+		height += MAJOR_LABEL_TOP_VERTICAL_MARGIN;
+	}
+	
+	else {
+		height += EXPECTED_GRADUATION_DATE_LABEL_VERTICAL_MARGIN;
+		height += expectedGraduationDateRect.size.height;
+	}
+	
+	if (minorRect.size.height > gpaRect.size.height) {
+		height += MINOR_LABEL_TOP_VERTICAL_MARGIN;
+		height += minorRect.size.height;
+	}
+	
+	else {
+		height += GPA_LABEL_TOP_VERTICAL_MARGIN;
+		height += gpaRect.size.height;
+	}
+	
+	// bullet/description labels
+	height += DESCRIPTION_LABELS_VERTICAL_MARGIN;
+	
+	for (NSString *description in educationReflection.descriptions) {
+		CGRect descriptionRect = [self descriptionRectForDescription:description];
+		height += descriptionRect.size.height;
+	}
+	
+	height += DESCRIPTION_LABELS_VERTICAL_MARGIN;
 	
 	return height;
-}
-
-- (CGRect)expectedGraduationDateRectForExpectedGraduationDate:(NSString *)expectedGraduationDate {
-	CGRect expectedGraduationDateRect = CGRectIntegral([expectedGraduationDate boundingRectWithSize:CGSizeMake(self.bounds.size.width/2 - 2*EXPECTED_GRADUATION_DATE_LABEL_HORIZONTAL_MARGIN, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [self expectedGraduationDateLabelFont]} context:nil]);
-	
-	return expectedGraduationDateRect;
-}
-
-- (CGRect)gpaRectForGpa:(NSString *)gpa {
-	CGRect gpaRect = CGRectIntegral([gpa boundingRectWithSize:CGSizeMake(self.bounds.size.width/2 - 2*GPA_LABEL_HORIZONTAL_MARGIN, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [self gpaLabelFont]} context:nil]);
-	
-	return gpaRect;
 }
 
 #pragma mark - School label
@@ -183,6 +201,12 @@
 	return _expectedGraduationDateLabel;
 }
 
+- (CGRect)expectedGraduationDateRectForExpectedGraduationDate:(NSString *)expectedGraduationDate {
+	CGRect expectedGraduationDateRect = CGRectIntegral([expectedGraduationDate boundingRectWithSize:CGSizeMake(self.bounds.size.width/2 - 2*EXPECTED_GRADUATION_DATE_LABEL_HORIZONTAL_MARGIN, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [self expectedGraduationDateLabelFont]} context:nil]);
+	
+	return expectedGraduationDateRect;
+}
+
 - (UIFont *)expectedGraduationDateLabelFont {
 	UIFont *expectedGraduationDateLabelFont = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
 	
@@ -201,10 +225,88 @@
 	return _gpaLabel;
 }
 
+- (CGRect)gpaRectForGpa:(NSString *)gpa {
+	CGRect gpaRect = CGRectIntegral([gpa boundingRectWithSize:CGSizeMake(self.bounds.size.width/2 - 2*GPA_LABEL_HORIZONTAL_MARGIN, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [self gpaLabelFont]} context:nil]);
+	
+	return gpaRect;
+}
+
 - (UIFont *)gpaLabelFont {
 	UIFont *gpaLabelFont = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
 	
 	return gpaLabelFont;
+}
+
+#pragma mark - Description/Bullet labels
+
+- (void)configureDescriptionLabelsForNumberOfDescriptionLabels:(NSInteger)numberOfDescriptionLabels {
+	if (!_descriptionLabels || !_descriptionBulletLabels) {
+		NSMutableArray *descriptionBulletLabels = [NSMutableArray array];
+		NSMutableArray *descriptionLabels = [NSMutableArray array];
+		
+		for (NSInteger i = 0; i < numberOfDescriptionLabels; i++) {
+			UILabel *bulletLabel = [self createBulletLabel];
+			[descriptionBulletLabels addObject:bulletLabel];
+			
+			UILabel *descriptionLabel = [self createDescriptionLabel];
+			[descriptionLabels addObject:descriptionLabel];
+			
+			[self addSubview:bulletLabel];
+			[self addSubview:descriptionLabel];
+		}
+		
+		_descriptionBulletLabels = [descriptionBulletLabels copy];
+		_descriptionLabels = [descriptionLabels copy];
+	}
+}
+
+#pragma mark - Bullet label
+
+- (UILabel *)createBulletLabel {
+	UILabel *bulletLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+	[bulletLabel setText:@"\u2022"];
+	[bulletLabel setTextColor:[UIColor whiteColor]];
+	[bulletLabel setFont:[self descriptionLabelFont]];
+	
+	return bulletLabel;
+}
+
+- (CGRect)bulletLabelRect {
+	CGRect bulletLabelRect = CGRectIntegral([BULLET_LABEL_TEXT boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [self bulletLabelFont]} context:nil]);
+	
+	return bulletLabelRect;
+}
+
+- (UIFont *)bulletLabelFont {
+	UIFont *bulletLabelFont = [self descriptionLabelFont];
+	
+	return bulletLabelFont;
+}
+
+#pragma mark - Description Label
+
+- (UILabel *)createDescriptionLabel {
+	UILabel *descriptionLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+	[descriptionLabel setNumberOfLines:0];
+	[descriptionLabel setFont:[self descriptionLabelFont]];
+	[descriptionLabel setTextColor:[UIColor whiteColor]];
+	
+	return descriptionLabel;
+}
+
+- (CGRect)descriptionRectForDescription:(NSString *)description {
+	CGRect bulletRect = [self bulletLabelRect];
+	
+	CGRect descriptionRect = CGRectIntegral([description boundingRectWithSize:CGSizeMake(self.bounds.size.width - (bulletRect.size.width + 14.0f + 2*DESCRIPTION_LABEL_HORIZONTAL_MARGIN), CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [self descriptionLabelFont]} context:nil]);
+	
+	return descriptionRect;
+}
+
+
+- (UIFont *)descriptionLabelFont {
+	UIFont *descriptionLabelFont = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+	
+	return descriptionLabelFont;
 }
 
 - (void)layoutSubviews {
@@ -234,6 +336,31 @@
 	CGRect gpaRect = [self gpaRectForGpa:self.gpaLabel.text];
 	
 	[self.gpaLabel setFrame:CGRectMake(self.bounds.size.width - (gpaRect.size.width + GPA_LABEL_HORIZONTAL_MARGIN), self.expectedGraduationDateLabel.frame.origin.y + self.expectedGraduationDateLabel.bounds.size.height + GPA_LABEL_TOP_VERTICAL_MARGIN, gpaRect.size.width, gpaRect.size.height)];
+	
+	// bullet/descriptions labels
+	CGFloat bulletLabelYPos = self.minorLabel.frame.origin.y + self.minorLabel.bounds.size.height + DESCRIPTION_LABELS_VERTICAL_MARGIN;
+	
+	NSUInteger index = 0;
+	
+	for (UILabel *bulletLabel in _descriptionBulletLabels) {
+		UILabel *descriptionLabel = _descriptionLabels[index];
+		
+		CGRect bulletRect = [self bulletLabelRect];
+		CGRect descriptionRect = [self descriptionRectForDescription:descriptionLabel.text];
+		CGRect previousDescriptionRect = CGRectZero;
+		
+		if (index > 0) {
+			UILabel *previousDescriptionLabel = _descriptionLabels[index - 1];
+			NSString *previousDescription = previousDescriptionLabel.text;
+			previousDescriptionRect = [self descriptionRectForDescription:previousDescription];
+			bulletLabelYPos += previousDescriptionRect.size.height;
+		}
+		
+		[bulletLabel setFrame:CGRectMake(DESCRIPTION_LABEL_HORIZONTAL_MARGIN, bulletLabelYPos, bulletRect.size.width, bulletRect.size.height)];
+		[descriptionLabel setFrame:CGRectMake(bulletLabel.frame.origin.x + bulletLabel.bounds.size.width + DESCRIPTION_LABEL_HORIZONTAL_MARGIN, bulletLabelYPos, descriptionRect.size.width, descriptionRect.size.height)];
+		
+		index++;
+	}
 }
 
 @end
