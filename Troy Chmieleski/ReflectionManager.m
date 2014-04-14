@@ -85,6 +85,7 @@
 	[universityReflection setMinor:@"Minor in C.S."];
 	[universityReflection setExpectedGraduationDate:@"May '15"];
 	[universityReflection setGpa:@"GPA: 3.65/4.00"];
+	[universityReflection setDescriptions:@[@"Dean’s List \u2013 Fall '11, Spring '12, Fall '12", @"Member of Eta Kappa Nu (HKN) ECE Honors Society", @"James Scholar", @"Member of Phi Eta Sigma Honors Society"]];
 	
 	[_educationReflections addObjectsFromArray:@[universityReflection]];
 }
