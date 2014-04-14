@@ -171,6 +171,62 @@
 				url = @"http://en.wikipedia.org/wiki/Objective-C";
 			}
 			
+			else if ([skill isEqualToString:SKILL_C_PLUS_PLUS]) {
+				url = @"http://en.wikipedia.org/wiki/C%2B%2B";
+			}
+			
+			else if ([skill isEqualToString:SKILL_JAVASCRIPT]) {
+				url = @"http://en.wikipedia.org/wiki/JavaScript";
+			}
+			
+			else if ([skill isEqualToString:SKILL_SQL]) {
+				url = @"http://en.wikipedia.org/wiki/SQL";
+			}
+			
+			else if ([skill isEqualToString:SKILL_AWS]) {
+				url = @"http://en.wikipedia.org/wiki/Amazon_Web_Services";
+			}
+			
+			else if ([skill isEqualToString:SKILL_HTML]) {
+				url = @"http://en.wikipedia.org/wiki/HTML";
+			}
+			
+			else if ([skill isEqualToString:SKILL_CSS]) {
+				url = @"http://en.wikipedia.org/wiki/CSS";
+			}
+			
+			else if ([skill isEqualToString:SKILL_PYTHON]) {
+				url = @"http://en.wikipedia.org/wiki/Python_(programming_language)";
+			}
+			
+			else if ([skill isEqualToString:SKILL_GIT]) {
+				url = @"http://en.wikipedia.org/wiki/Git_(software)";
+			}
+			
+			else if ([skill isEqualToString:SKILL_LATEX]) {
+				url = @"http://en.wikipedia.org/wiki/LaTeX";
+			}
+			
+			else if ([skill isEqualToString:SKILL_ASSEMBLY]) {
+				url = @"http://en.wikipedia.org/wiki/Assembly_language";
+			}
+			
+			else if ([skill isEqualToString:SKILL_COMPUTER_ARCHITECTURE]) {
+				url = @"http://en.wikipedia.org/wiki/Computer_architecture";
+			}
+			
+			else if ([skill isEqualToString:SKILL_CIRCUIT_DESIGN]) {
+				url = @"http://en.wikipedia.org/wiki/Circuit_design";
+			}
+			
+			else if ([skill isEqualToString:SKILL_DIGITAL_SIGNAL_PROCESSING]) {
+				url = @"http://en.wikipedia.org/wiki/Digital_signal_processing";
+			}
+			
+			else if ([skill isEqualToString:SKILL_SOLDERING]) {
+				url = @"http://en.wikipedia.org/wiki/Soldering";
+			}
+			
 			else {
 				url = @"";
 			}

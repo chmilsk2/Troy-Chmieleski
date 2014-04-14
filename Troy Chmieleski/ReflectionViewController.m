@@ -432,7 +432,20 @@ typedef NS_ENUM(NSInteger, MenuItemType) {
 }
 
 - (void)configureSkillsReflectionCell:(SkillsReflectionCell *)skillsReflectionCell forRowAtIndexPath:(NSIndexPath *)indexPath {
+	ReflectionManager *sharedReflectionManager = [ReflectionManager sharedReflectionManager];
 	
+	SkillsReflection *skillsReflection = sharedReflectionManager.skillsReflections[[self reflectionCellIndexForIndexPath:indexPath]];
+	
+	[skillsReflectionCell configureSkillButtonsWithSkillsCount:skillsReflection.skills.count];
+	
+	NSUInteger index = 0;
+	
+	for (SkillButton *skillButton in skillsReflectionCell.skillButtons) {
+		NSString *skill = skillsReflection.skills[index];
+		[skillButton.skillLabel setText:skill];
+		
+		index++;
+	}
 }
 
 - (void)configureExperienceReflectionCell:(ExperienceReflectionCell *)experienceReflectionCell experienceReflection:(ExperienceReflection *)experienceReflection forRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -533,7 +546,11 @@ typedef NS_ENUM(NSInteger, MenuItemType) {
 		}
 		
 		else if (sectionType == SectionTypeSkills) {
-			rowHeight = 120.0f;
+			SkillsReflection *skillsReflection = sharedReflectionManager.skillsReflections[[self reflectionCellIndexForIndexPath:indexPath]];
+			
+			SkillsReflectionCell *prototypicalSkillsReflectionCell = [self.reflectionTableView dequeueReusableCellWithIdentifier:SkillsReflectionCellIdentifier];
+			
+			rowHeight = [prototypicalSkillsReflectionCell heightForSkillsReflection:skillsReflection];
 		}
 		
 		return rowHeight;

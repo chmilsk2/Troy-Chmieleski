@@ -9,6 +9,7 @@
 #import "ReflectionCell.h"
 
 @class SkillsReflectionCell;
+@class SkillsReflection;
 @class SkillButton;
 
 @protocol SkillReflectionCellDelegate <NSObject>
@@ -20,6 +21,9 @@
 @interface SkillsReflectionCell : ReflectionCell
 
 @property (nonatomic, strong) id <SkillReflectionCellDelegate> skillReflectionCellDelegate;
-@property (nonatomic, strong) SkillButton *skillButton;
+@property (nonatomic, strong) NSArray *skillButtons;
+
+- (CGFloat)heightForSkillsReflection:(SkillsReflection *)skillsReflection;
+- (void)configureSkillButtonsWithSkillsCount:(NSInteger)skillsCount;
 
 @end

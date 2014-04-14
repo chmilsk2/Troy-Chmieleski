@@ -7,12 +7,14 @@
 //
 
 #import "SkillsReflectionCell.h"
+#import "SkillsReflection.h"
 #import "SkillButton.h"
 
+#define SKILL_REFLECTION_CELL_TOP_VERTICAL_MARGIN 30.0f
+
 // skill button
-#define SKILL @"Objective-C"
 #define SKILL_BUTTON_HORIZONTAL_MARGIN 14.0f
-#define SKILL_BUTTON_VERTICAL_MARGIN 30.0f
+#define SKILL_BUTTON_VERTICAL_MARIGN 14.0f
 
 @interface SkillsReflectionCell () <SkillButtonDelegate>
 
@@ -24,33 +26,92 @@
 	self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
 	
 	if (self) {
-		[self addSubview:self.skillButton];
-		
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(contentSizeDidChange:) name:UIContentSizeCategoryDidChangeNotification object:nil];
 	}
 	
 	return self;
 }
 
-#pragma mark - Skill button
+#pragma mark - Height
 
-- (SkillButton *)skillButton {
-	if (!_skillButton) {
-		_skillButton = [[SkillButton alloc] initWithFrame:CGRectZero];
-		[_skillButton setDelegate:self];
+- (CGFloat)heightForSkillsReflection:(SkillsReflection *)skillsReflection {
+	CGFloat height = 0;
+	
+	CGFloat xPos = 0;
+	CGFloat yPos = 0;
+	
+	xPos += SKILL_BUTTON_HORIZONTAL_MARGIN;
+	yPos += SKILL_REFLECTION_CELL_TOP_VERTICAL_MARGIN;
+	
+	NSInteger index = 0;
+	
+	for (NSString *skill in skillsReflection.skills) {
+		SkillButton *prototypicalSkillButton = [self createSkillButton];
+		[prototypicalSkillButton.skillLabel setText:skill];
 		
-		[_skillButton addTarget:self action:@selector(skillButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
+		CGRect skillRect = [self skillRectForSkillButton:prototypicalSkillButton];
+		CGFloat prototypicalSkillButtonWidth = [prototypicalSkillButton widthWithSkillRect:skillRect];
+		CGFloat prototypicalSkillButtonHeight = [prototypicalSkillButton heightWithSkillRect:skillRect];
 		
-		[_skillButton.skillLabel setFont:[self skillLabelFont]];
-		[_skillButton.skillLabel setTextColor:[UIColor whiteColor]];
-		[_skillButton.skillLabel setText:SKILL];
+		if (xPos + prototypicalSkillButtonWidth > self.bounds.size.width - SKILL_BUTTON_HORIZONTAL_MARGIN) {
+			xPos = SKILL_BUTTON_HORIZONTAL_MARGIN;
+			yPos += prototypicalSkillButtonHeight + SKILL_BUTTON_VERTICAL_MARIGN;
+		}
 		
-		[_skillButton.layer setCornerRadius:6.0f];
-		[_skillButton.layer setBorderWidth:1.0f];
-		[_skillButton.layer setBorderColor:[UIColor whiteColor].CGColor];
+		if (xPos + prototypicalSkillButtonWidth <= self.bounds.size.width - SKILL_BUTTON_HORIZONTAL_MARGIN) {
+			xPos += prototypicalSkillButtonWidth + SKILL_BUTTON_HORIZONTAL_MARGIN;
+		}
+		
+		else {
+			xPos = SKILL_BUTTON_HORIZONTAL_MARGIN;
+			yPos += prototypicalSkillButtonHeight + SKILL_BUTTON_VERTICAL_MARIGN;
+		}
+		
+		if (index == skillsReflection.skills.count - 1) {
+			yPos += prototypicalSkillButtonHeight + SKILL_BUTTON_VERTICAL_MARIGN;
+		}
+		
+		index++;
 	}
 	
-	return _skillButton;
+	height = yPos;
+	
+	return height;
+}
+
+#pragma mark - Skill buttons
+
+- (void)configureSkillButtonsWithSkillsCount:(NSInteger)skillsCount {
+	if (!_skillButtons) {
+		NSMutableArray *skillButtons = [NSMutableArray array];
+		
+		for (NSInteger i = 0; i < skillsCount; i++) {
+			SkillButton *skillButton = [self createSkillButton];
+			[self addSubview:skillButton];
+			
+			[skillButtons addObject:skillButton];
+		}
+		
+		_skillButtons = [skillButtons copy];
+	}
+}
+
+#pragma mark - Skill button
+
+- (SkillButton *)createSkillButton {
+	SkillButton *skillButton = [[SkillButton alloc] initWithFrame:CGRectZero];
+	[skillButton setDelegate:self];
+	
+	[skillButton addTarget:self action:@selector(skillButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
+	
+	[skillButton.skillLabel setFont:[self skillLabelFont]];
+	[skillButton.skillLabel setTextColor:[UIColor whiteColor]];
+	
+	[skillButton.layer setCornerRadius:6.0f];
+	[skillButton.layer setBorderWidth:1.0f];
+	[skillButton.layer setBorderColor:[UIColor whiteColor].CGColor];
+	
+	return skillButton;
 }
 
 - (void)skillButtonTouched:(id)sender {
@@ -82,18 +143,39 @@
 #pragma mark - Content size did change notification
 
 - (void)contentSizeDidChange:(NSNotification *)notification {
-	[self.skillButton.skillLabel setFont:[self skillLabelFont]];
+	for (SkillButton *skillButton in _skillButtons) {
+		[skillButton.skillLabel setFont:[self skillLabelFont]];
+	}
 }
 
 - (void)layoutSubviews {
 	[super layoutSubviews];
 	
-	// skill button
-	CGRect skillRect = [self skillRectForSkill:self.skillButton.skillLabel.text];
-	CGFloat skillButtonWidth = [self.skillButton widthWithSkillRect:skillRect];
-	CGFloat skillButtonHeight = [self.skillButton heightWithSkillRect:skillRect];
+	// skill buttons
+	CGFloat skillButtonXPos = SKILL_BUTTON_HORIZONTAL_MARGIN;
+	CGFloat skillButtonYPos = SKILL_REFLECTION_CELL_TOP_VERTICAL_MARGIN;
 	
-	[self.skillButton setFrame:CGRectMake(SKILL_BUTTON_HORIZONTAL_MARGIN, SKILL_BUTTON_VERTICAL_MARGIN, skillButtonWidth, skillButtonHeight)];
+	for (SkillButton *skillButton in _skillButtons) {
+		CGRect skillRect = [self skillRectForSkill:skillButton.skillLabel.text];
+		CGFloat skillButtonWidth = [skillButton widthWithSkillRect:skillRect];
+		CGFloat skillButtonHeight = [skillButton heightWithSkillRect:skillRect];
+		
+		if (skillButtonXPos + skillButtonWidth > self.bounds.size.width - SKILL_BUTTON_HORIZONTAL_MARGIN) {
+			skillButtonXPos = SKILL_BUTTON_HORIZONTAL_MARGIN;
+			skillButtonYPos += skillButtonHeight + SKILL_BUTTON_VERTICAL_MARIGN;
+		}
+		
+		[skillButton setFrame:CGRectMake(skillButtonXPos, skillButtonYPos, skillButtonWidth, skillButtonHeight)];
+		
+		if (skillButtonXPos + skillButtonWidth <= self.bounds.size.width - SKILL_BUTTON_HORIZONTAL_MARGIN) {
+			skillButtonXPos += skillButtonWidth + SKILL_BUTTON_HORIZONTAL_MARGIN;
+		}
+		
+		else {
+			skillButtonXPos = SKILL_BUTTON_HORIZONTAL_MARGIN;
+			skillButtonYPos += skillButtonHeight + SKILL_BUTTON_VERTICAL_MARIGN;
+		}
+	}
 }
 
 @end
