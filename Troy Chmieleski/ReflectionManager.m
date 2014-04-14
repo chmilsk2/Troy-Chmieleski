@@ -48,30 +48,30 @@
 	ExperienceReflection *iOSInternExperienceReflection = [[ExperienceReflection alloc] init];
 	[iOSInternExperienceReflection setEmployer:@"DONEBOX"];
 	[iOSInternExperienceReflection setTitle:@"iOS Intern"];
-	[iOSInternExperienceReflection setDescription:@"Developing an app that links together email, calendars and todos"];
+	[iOSInternExperienceReflection setDescription:@"Developing an app that links together email, contacts, calendars and todos"];
 	[iOSInternExperienceReflection setLocation:@"Cambridge, MA"];
-	[iOSInternExperienceReflection setDate:@"June '13 - Present"];
+	[iOSInternExperienceReflection setDate:@"Jun '13 \u2013 Present"];
 	
 	ExperienceReflection *uiucTinnitusLabIOSDeveloperExperienceReflection = [[ExperienceReflection alloc] init];
 	[uiucTinnitusLabIOSDeveloperExperienceReflection setEmployer:@"UIUC TINNITUS LAB"];
 	[uiucTinnitusLabIOSDeveloperExperienceReflection setTitle:@"iOS Developer"];
 	[uiucTinnitusLabIOSDeveloperExperienceReflection setDescription:@"Designing fractal tone therapy for Tinnitus that leverages the power of Core Audio"];
 	[uiucTinnitusLabIOSDeveloperExperienceReflection setLocation:@"Urbana, IL"];
-	[uiucTinnitusLabIOSDeveloperExperienceReflection setDate:@"April '13 - Present"];
+	[uiucTinnitusLabIOSDeveloperExperienceReflection setDate:@"Apr '13 \u2013 Present"];
 	
 	ExperienceReflection *citesOnsiteConsultantExperienceReflection = [[ExperienceReflection alloc] init];
 	[citesOnsiteConsultantExperienceReflection setEmployer:@"CITES ONSITE CONSULTING"];
-	[citesOnsiteConsultantExperienceReflection setTitle:@"Computer Consultant"];
+	[citesOnsiteConsultantExperienceReflection setTitle:@"Consultant"];
 	[citesOnsiteConsultantExperienceReflection setDescription:@"Facilitated on-site computer consulting services in both home and enterprise environments"];
 	[citesOnsiteConsultantExperienceReflection setLocation:@"Urbana, IL"];
-	[citesOnsiteConsultantExperienceReflection setDate:@"September '12 - May '13"];
+	[citesOnsiteConsultantExperienceReflection setDate:@"Sep '12 \u2013 May '13"];
 	
 	ExperienceReflection *universityRelationsOfficeAssistantExperienceReflection = [[ExperienceReflection alloc] init];
 	[universityRelationsOfficeAssistantExperienceReflection setEmployer:@"UNIVERSITY RELATIONS"];
 	[universityRelationsOfficeAssistantExperienceReflection setTitle:@"Office Assistant"];
 	[universityRelationsOfficeAssistantExperienceReflection setDescription:@"Updated official records and PrezRelease, the blog of the University of Illinois president"];
 	[universityRelationsOfficeAssistantExperienceReflection setLocation:@"Urbana, IL"];
-	[universityRelationsOfficeAssistantExperienceReflection setDate:@"February '12 - May '12"];
+	[universityRelationsOfficeAssistantExperienceReflection setDate:@"Feb '12 \u2013 May '12"];
 	
 	[_experienceReflections addObjectsFromArray:@[iOSInternExperienceReflection, uiucTinnitusLabIOSDeveloperExperienceReflection, citesOnsiteConsultantExperienceReflection, universityRelationsOfficeAssistantExperienceReflection]];
 }
