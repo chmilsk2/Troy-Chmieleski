@@ -410,15 +410,23 @@ typedef NS_ENUM(NSInteger, MenuItemType) {
 }
 
 - (void)configureEducationReflectionCell:(EducationReflectionCell *)educationReflectionCell forRowAtIndexPath:(NSIndexPath *)indexPath {
-		ReflectionManager *sharedReflectionManager = [ReflectionManager sharedReflectionManager];
+	ReflectionManager *sharedReflectionManager = [ReflectionManager sharedReflectionManager];
 	
 	EducationReflection *educationReflection = sharedReflectionManager.educationReflections[[self reflectionCellIndexForIndexPath:indexPath]];
 	
+	[educationReflectionCell configureDescriptionLabelsForNumberOfDescriptionLabels:educationReflection.descriptions.count];
 	[educationReflectionCell.schoolLabel setText:educationReflection.school];
 	[educationReflectionCell.majorLabel setText:educationReflection.major];
 	[educationReflectionCell.minorLabel setText:educationReflection.minor];
 	[educationReflectionCell.expectedGraduationDateLabel setText:educationReflection.expectedGraduationDate];
 	[educationReflectionCell.gpaLabel setText:educationReflection.gpa];
+	
+	NSUInteger index = 0;
+	
+	for (UILabel *descriptionLabel in educationReflectionCell.descriptionLabels) {
+		[descriptionLabel setText:educationReflection.descriptions[index]];
+		index++;
+	}
 }
 
 - (void)configureLeadershipAndActivitiesReflectionCell:(LeadershipAndActivitiesReflectionCell *)leadershipAndActivitiesReflectionCell forRowAtIndexPath:(NSIndexPath *)indexPath {
