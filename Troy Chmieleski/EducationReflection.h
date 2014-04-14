@@ -15,5 +15,6 @@
 @property (nonatomic, strong) NSString *minor;
 @property (nonatomic, strong) NSString *expectedGraduationDate;
 @property (nonatomic, strong) NSString *gpa;
+@property (nonatomic, strong) NSArray *descriptions;
 
 @end
