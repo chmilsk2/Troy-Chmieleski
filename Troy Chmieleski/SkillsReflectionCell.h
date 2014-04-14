@@ -8,6 +8,18 @@
 
 #import "ReflectionCell.h"
 
+@class SkillsReflectionCell;
+@class SkillButton;
+
+@protocol SkillReflectionCellDelegate <NSObject>
+
+- (void)skillReflectionCell:(SkillsReflectionCell *)skillReflectionCell skillButtonTouched:(SkillButton *)skillButton;
+
+@end
+
 @interface SkillsReflectionCell : ReflectionCell
+
+@property (nonatomic, strong) id <SkillReflectionCellDelegate> skillReflectionCellDelegate;
+@property (nonatomic, strong) SkillButton *skillButton;
 
 @end

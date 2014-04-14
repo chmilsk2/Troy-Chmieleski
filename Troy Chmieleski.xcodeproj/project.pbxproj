@@ -9,13 +9,10 @@
 /* Begin PBXBuildFile section */
 		0518160D18F1F8800009648E /* ReflectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0518160C18F1F8800009648E /* ReflectionViewController.m */; };
 		0518161118F1FA960009648E /* ReflectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0518161018F1FA960009648E /* ReflectionCell.m */; };
-		0518161418F1FE710009648E /* rainbowApple@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0518161318F1FE710009648E /* rainbowApple@2x.png */; };
-		0518161618F21BDC0009648E /* bmw@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0518161518F21BDC0009648E /* bmw@2x.png */; };
-		0518161818F21DC80009648E /* clownFish@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0518161718F21DC80009648E /* clownFish@2x.png */; };
 		0518161A18F21F170009648E /* sky@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0518161918F21F170009648E /* sky@2x.png */; };
 		0518162018F2255A0009648E /* Reflection.m in Sources */ = {isa = PBXBuildFile; fileRef = 0518161F18F2255A0009648E /* Reflection.m */; };
 		0518162318F236A50009648E /* ExperienceReflection.m in Sources */ = {isa = PBXBuildFile; fileRef = 0518162218F236A50009648E /* ExperienceReflection.m */; };
-		0518162618F237810009648E /* ExperienceReflectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0518162518F237810009648E /* ExperienceReflectionCell.m */; };
+		0518162618F237810009648E /* WorkExperienceReflectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0518162518F237810009648E /* WorkExperienceReflectionCell.m */; };
 		0525DED018F27338001ADD5D /* EducationReflectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0525DECF18F27338001ADD5D /* EducationReflectionCell.m */; };
 		0525DED318F2734F001ADD5D /* EducationReflection.m in Sources */ = {isa = PBXBuildFile; fileRef = 0525DED218F2734F001ADD5D /* EducationReflection.m */; };
 		05316CE618FB248F003A92AF /* ReflectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05316CE518FB248F003A92AF /* ReflectionManager.m */; };
@@ -34,15 +31,14 @@
 		0539204118F4D556008DDD64 /* MenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0539204018F4D556008DDD64 /* MenuCell.m */; };
 		054294E018FA702A0071B322 /* Deep Blue Space@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 054294DF18FA702A0071B322 /* Deep Blue Space@2x.png */; };
 		054294E218FA70BC0071B322 /* Apple A6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 054294E118FA70BC0071B322 /* Apple A6@2x.png */; };
-		054294E418FA73660071B322 /* Donebox Screen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 054294E318FA73660071B322 /* Donebox Screen@2x.png */; };
-		054294E618FA74060071B322 /* Donebox Home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 054294E518FA74060071B322 /* Donebox Home@2x.png */; };
 		054294E818FA75030071B322 /* Planet@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 054294E718FA75030071B322 /* Planet@2x.png */; };
-		054294EA18FA75800071B322 /* Blueprint@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 054294E918FA75800071B322 /* Blueprint@2x.png */; };
-		054294EC18FA760C0071B322 /* Planet Up Close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 054294EB18FA760C0071B322 /* Planet Up Close@2x.png */; };
 		054294EE18FA76750071B322 /* Earth@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 054294ED18FA76750071B322 /* Earth@2x.png */; };
 		054294F018FA77040071B322 /* Solar System@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 054294EF18FA77040071B322 /* Solar System@2x.png */; };
 		054294F218FA77730071B322 /* Microprocessor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 054294F118FA77730071B322 /* Microprocessor@2x.png */; };
 		054294F418FA77E80071B322 /* App Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 054294F318FA77E80071B322 /* App Icon@2x.png */; };
+		059120F118FBCBC30060FB58 /* ExperienceReflectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 059120F018FBCBC30060FB58 /* ExperienceReflectionCell.m */; };
+		059120F418FBCE6A0060FB58 /* WorkExperienceReflection.m in Sources */ = {isa = PBXBuildFile; fileRef = 059120F318FBCE6A0060FB58 /* WorkExperienceReflection.m */; };
+		05955C7118FBDEBC006F16E6 /* Planet Lights@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05955C7018FBDEBC006F16E6 /* Planet Lights@2x.png */; };
 		05AC71D418FA309E00117C91 /* Troy Chmieleski Profile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05AC71D318FA309E00117C91 /* Troy Chmieleski Profile@2x.png */; };
 		05DADBFC18F1C35800B96EE2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DADBFB18F1C35800B96EE2 /* Foundation.framework */; };
 		05DADBFE18F1C35800B96EE2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DADBFD18F1C35800B96EE2 /* CoreGraphics.framework */; };
@@ -61,6 +57,7 @@
 		05DADC3B18F1D1CE00B96EE2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DADC3A18F1D1CE00B96EE2 /* CoreData.framework */; };
 		05DADC3D18F1D1DB00B96EE2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DADC3C18F1D1DB00B96EE2 /* SystemConfiguration.framework */; };
 		05DADC3F18F1D1EA00B96EE2 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DADC3E18F1D1EA00B96EE2 /* libz.dylib */; };
+		05F657E918FC73D00013B45B /* SkillButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F657E818FC73D00013B45B /* SkillButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,16 +75,13 @@
 		0518160C18F1F8800009648E /* ReflectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReflectionViewController.m; sourceTree = "<group>"; };
 		0518160F18F1FA960009648E /* ReflectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReflectionCell.h; sourceTree = "<group>"; };
 		0518161018F1FA960009648E /* ReflectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReflectionCell.m; sourceTree = "<group>"; };
-		0518161318F1FE710009648E /* rainbowApple@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rainbowApple@2x.png"; sourceTree = "<group>"; };
-		0518161518F21BDC0009648E /* bmw@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bmw@2x.png"; sourceTree = "<group>"; };
-		0518161718F21DC80009648E /* clownFish@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clownFish@2x.png"; sourceTree = "<group>"; };
 		0518161918F21F170009648E /* sky@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sky@2x.png"; sourceTree = "<group>"; };
 		0518161E18F2255A0009648E /* Reflection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reflection.h; sourceTree = "<group>"; };
 		0518161F18F2255A0009648E /* Reflection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reflection.m; sourceTree = "<group>"; };
 		0518162118F236A50009648E /* ExperienceReflection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExperienceReflection.h; sourceTree = "<group>"; };
 		0518162218F236A50009648E /* ExperienceReflection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExperienceReflection.m; sourceTree = "<group>"; };
-		0518162418F237810009648E /* ExperienceReflectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExperienceReflectionCell.h; sourceTree = "<group>"; };
-		0518162518F237810009648E /* ExperienceReflectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExperienceReflectionCell.m; sourceTree = "<group>"; };
+		0518162418F237810009648E /* WorkExperienceReflectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkExperienceReflectionCell.h; sourceTree = "<group>"; };
+		0518162518F237810009648E /* WorkExperienceReflectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkExperienceReflectionCell.m; sourceTree = "<group>"; };
 		0525DECE18F27338001ADD5D /* EducationReflectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EducationReflectionCell.h; sourceTree = "<group>"; };
 		0525DECF18F27338001ADD5D /* EducationReflectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EducationReflectionCell.m; sourceTree = "<group>"; };
 		0525DED118F2734F001ADD5D /* EducationReflection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EducationReflection.h; sourceTree = "<group>"; };
@@ -116,15 +110,16 @@
 		0539204018F4D556008DDD64 /* MenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuCell.m; sourceTree = "<group>"; };
 		054294DF18FA702A0071B322 /* Deep Blue Space@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Deep Blue Space@2x.png"; sourceTree = "<group>"; };
 		054294E118FA70BC0071B322 /* Apple A6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Apple A6@2x.png"; sourceTree = "<group>"; };
-		054294E318FA73660071B322 /* Donebox Screen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Donebox Screen@2x.png"; sourceTree = "<group>"; };
-		054294E518FA74060071B322 /* Donebox Home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Donebox Home@2x.png"; sourceTree = "<group>"; };
 		054294E718FA75030071B322 /* Planet@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Planet@2x.png"; sourceTree = "<group>"; };
-		054294E918FA75800071B322 /* Blueprint@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Blueprint@2x.png"; sourceTree = "<group>"; };
-		054294EB18FA760C0071B322 /* Planet Up Close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Planet Up Close@2x.png"; sourceTree = "<group>"; };
 		054294ED18FA76750071B322 /* Earth@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Earth@2x.png"; sourceTree = "<group>"; };
 		054294EF18FA77040071B322 /* Solar System@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Solar System@2x.png"; sourceTree = "<group>"; };
 		054294F118FA77730071B322 /* Microprocessor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Microprocessor@2x.png"; sourceTree = "<group>"; };
 		054294F318FA77E80071B322 /* App Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "App Icon@2x.png"; sourceTree = "<group>"; };
+		059120EF18FBCBC30060FB58 /* ExperienceReflectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExperienceReflectionCell.h; sourceTree = "<group>"; };
+		059120F018FBCBC30060FB58 /* ExperienceReflectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExperienceReflectionCell.m; sourceTree = "<group>"; };
+		059120F218FBCE6A0060FB58 /* WorkExperienceReflection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkExperienceReflection.h; sourceTree = "<group>"; };
+		059120F318FBCE6A0060FB58 /* WorkExperienceReflection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkExperienceReflection.m; sourceTree = "<group>"; };
+		05955C7018FBDEBC006F16E6 /* Planet Lights@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Planet Lights@2x.png"; sourceTree = "<group>"; };
 		05AC71D318FA309E00117C91 /* Troy Chmieleski Profile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Troy Chmieleski Profile@2x.png"; sourceTree = "<group>"; };
 		05DADBF818F1C35800B96EE2 /* Troy Chmieleski.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Troy Chmieleski.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05DADBFB18F1C35800B96EE2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -154,6 +149,8 @@
 		05DADC3A18F1D1CE00B96EE2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		05DADC3C18F1D1DB00B96EE2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		05DADC3E18F1D1EA00B96EE2 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		05F657E718FC73D00013B45B /* SkillButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillButton.h; sourceTree = "<group>"; };
+		05F657E818FC73D00013B45B /* SkillButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,14 +187,18 @@
 			children = (
 				0518160F18F1FA960009648E /* ReflectionCell.h */,
 				0518161018F1FA960009648E /* ReflectionCell.m */,
-				0518162418F237810009648E /* ExperienceReflectionCell.h */,
-				0518162518F237810009648E /* ExperienceReflectionCell.m */,
+				059120EF18FBCBC30060FB58 /* ExperienceReflectionCell.h */,
+				059120F018FBCBC30060FB58 /* ExperienceReflectionCell.m */,
+				0518162418F237810009648E /* WorkExperienceReflectionCell.h */,
+				0518162518F237810009648E /* WorkExperienceReflectionCell.m */,
 				0525DECE18F27338001ADD5D /* EducationReflectionCell.h */,
 				0525DECF18F27338001ADD5D /* EducationReflectionCell.m */,
 				05316CF118FB3FFF003A92AF /* LeadershipAndActivitiesReflectionCell.h */,
 				05316CF218FB3FFF003A92AF /* LeadershipAndActivitiesReflectionCell.m */,
 				05316CF418FB4012003A92AF /* SkillsReflectionCell.h */,
 				05316CF518FB4012003A92AF /* SkillsReflectionCell.m */,
+				05F657E718FC73D00013B45B /* SkillButton.h */,
+				05F657E818FC73D00013B45B /* SkillButton.m */,
 			);
 			name = "Reflection Cell";
 			sourceTree = "<group>";
@@ -210,18 +211,12 @@
 				054294F318FA77E80071B322 /* App Icon@2x.png */,
 				054294F118FA77730071B322 /* Microprocessor@2x.png */,
 				054294EF18FA77040071B322 /* Solar System@2x.png */,
-				0518161318F1FE710009648E /* rainbowApple@2x.png */,
-				0518161518F21BDC0009648E /* bmw@2x.png */,
-				0518161718F21DC80009648E /* clownFish@2x.png */,
 				0518161918F21F170009648E /* sky@2x.png */,
 				054294DF18FA702A0071B322 /* Deep Blue Space@2x.png */,
 				054294E118FA70BC0071B322 /* Apple A6@2x.png */,
-				054294E318FA73660071B322 /* Donebox Screen@2x.png */,
-				054294E518FA74060071B322 /* Donebox Home@2x.png */,
 				054294E718FA75030071B322 /* Planet@2x.png */,
-				054294E918FA75800071B322 /* Blueprint@2x.png */,
-				054294EB18FA760C0071B322 /* Planet Up Close@2x.png */,
 				054294ED18FA76750071B322 /* Earth@2x.png */,
+				05955C7018FBDEBC006F16E6 /* Planet Lights@2x.png */,
 			);
 			name = "Reflection Images";
 			sourceTree = "<group>";
@@ -377,6 +372,8 @@
 				0518161F18F2255A0009648E /* Reflection.m */,
 				0518162118F236A50009648E /* ExperienceReflection.h */,
 				0518162218F236A50009648E /* ExperienceReflection.m */,
+				059120F218FBCE6A0060FB58 /* WorkExperienceReflection.h */,
+				059120F318FBCE6A0060FB58 /* WorkExperienceReflection.m */,
 				0525DED118F2734F001ADD5D /* EducationReflection.h */,
 				0525DED218F2734F001ADD5D /* EducationReflection.m */,
 				05316CEB18FB3EF6003A92AF /* LeadershipAndActivitiesReflection.h */,
@@ -491,15 +488,9 @@
 				05AC71D418FA309E00117C91 /* Troy Chmieleski Profile@2x.png in Resources */,
 				0539203418F4B0CB008DDD64 /* MenuButton@2x.png in Resources */,
 				054294E218FA70BC0071B322 /* Apple A6@2x.png in Resources */,
-				0518161618F21BDC0009648E /* bmw@2x.png in Resources */,
-				054294EA18FA75800071B322 /* Blueprint@2x.png in Resources */,
 				054294E018FA702A0071B322 /* Deep Blue Space@2x.png in Resources */,
-				054294EC18FA760C0071B322 /* Planet Up Close@2x.png in Resources */,
-				0518161818F21DC80009648E /* clownFish@2x.png in Resources */,
 				054294F018FA77040071B322 /* Solar System@2x.png in Resources */,
-				054294E618FA74060071B322 /* Donebox Home@2x.png in Resources */,
-				0518161418F1FE710009648E /* rainbowApple@2x.png in Resources */,
-				054294E418FA73660071B322 /* Donebox Screen@2x.png in Resources */,
+				05955C7118FBDEBC006F16E6 /* Planet Lights@2x.png in Resources */,
 				0539203518F4B0CB008DDD64 /* MenuButton.png in Resources */,
 				0539202C18F4A22D008DDD64 /* ComposeGoalButton.png in Resources */,
 				054294EE18FA76750071B322 /* Earth@2x.png in Resources */,
@@ -531,15 +522,18 @@
 				05316CF018FB3F0E003A92AF /* SkillsReflection.m in Sources */,
 				05DADC0818F1C35800B96EE2 /* main.m in Sources */,
 				05316CF318FB3FFF003A92AF /* LeadershipAndActivitiesReflectionCell.m in Sources */,
+				05F657E918FC73D00013B45B /* SkillButton.m in Sources */,
 				0518162318F236A50009648E /* ExperienceReflection.m in Sources */,
 				0525DED018F27338001ADD5D /* EducationReflectionCell.m in Sources */,
 				05316CE618FB248F003A92AF /* ReflectionManager.m in Sources */,
 				0518162018F2255A0009648E /* Reflection.m in Sources */,
 				0539203E18F4D547008DDD64 /* MenuProfileCell.m in Sources */,
-				0518162618F237810009648E /* ExperienceReflectionCell.m in Sources */,
+				0518162618F237810009648E /* WorkExperienceReflectionCell.m in Sources */,
 				0518161118F1FA960009648E /* ReflectionCell.m in Sources */,
 				05316CF618FB4012003A92AF /* SkillsReflectionCell.m in Sources */,
+				059120F118FBCBC30060FB58 /* ExperienceReflectionCell.m in Sources */,
 				0525DED318F2734F001ADD5D /* EducationReflection.m in Sources */,
+				059120F418FBCE6A0060FB58 /* WorkExperienceReflection.m in Sources */,
 				0518160D18F1F8800009648E /* ReflectionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

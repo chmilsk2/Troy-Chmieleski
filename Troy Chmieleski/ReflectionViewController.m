@@ -20,14 +20,14 @@
 // Menu cell
 #import "MenuCell.h"
 
-// Experience reflection
-#import "ExperienceReflection.h"
+// Work experience reflection
+#import "WorkExperienceReflection.h"
 
 // Education reflection
 #import "EducationReflection.h"
 
-// Experience reflection cell
-#import "ExperienceReflectionCell.h"
+// Work experience reflection cell
+#import "WorkExperienceReflectionCell.h"
 
 // Education reflection cell
 #import "EducationReflectionCell.h"
@@ -44,10 +44,13 @@
 // Skills reflection cell
 #import "SkillsReflectionCell.h"
 
+// Skill button
+#import "SkillButton.h"
+
 // Google Analytics
 #define SCREEN_NAME @"Reflection Screen"
 
-#define ExperienceReflectionCellIdentifier @"Experience Reflection Cell Identifier"
+#define WorkExperienceReflectionCellIdentifier @"Work Experience Reflection Cell Identifier"
 #define EducationReflectionCellIdentifier @"Education Reflection Cell Identifier"
 #define LeadershipAndActivitiesReflectionCellIdentifier @"Leadership and Activities Reflection Cell Identifier"
 #define SkillsReflectionCellIdentifier @"Skills Reflection Cell Identifier"
@@ -108,7 +111,7 @@
 
 typedef NS_ENUM(NSInteger, SectionType) {
 	SectionTypeGoals = 0,
-	SectionTypeExperience = 1,
+	SectionTypeWorkExperience = 1,
 	SectionTypeEducation = 2,
 	SectionTypeLeadershipAndActivities = 3,
 	SectionTypeSkills = 4
@@ -130,7 +133,7 @@ typedef NS_ENUM(NSInteger, MenuItemType) {
 	MenuItemTypeSkills = 5
 };
 
-@interface ReflectionViewController () <MenuProfileCellDelegate, ReflectionCelDelegate, MenuDataSource, MenuDelegate>
+@interface ReflectionViewController () <MenuProfileCellDelegate, ReflectionCelDelegate, MenuDataSource, MenuDelegate, SkillReflectionCellDelegate>
 
 @property (nonatomic, strong) NSArray *menuItems;
 @property (nonatomic, strong) Menu *menu;
@@ -179,7 +182,7 @@ typedef NS_ENUM(NSInteger, MenuItemType) {
 }
 
 - (void)setUpReflectionTableView {
-	[self.reflectionTableView registerClass:[ExperienceReflectionCell class] forCellReuseIdentifier:ExperienceReflectionCellIdentifier];
+	[self.reflectionTableView registerClass:[WorkExperienceReflectionCell class] forCellReuseIdentifier:WorkExperienceReflectionCellIdentifier];
 	[self.reflectionTableView registerClass:[EducationReflectionCell class] forCellReuseIdentifier:EducationReflectionCellIdentifier];
 	[self.reflectionTableView registerClass:[LeadershipAndActivitiesReflectionCell class] forCellReuseIdentifier:LeadershipAndActivitiesReflectionCellIdentifier];
 	[self.reflectionTableView registerClass:[SkillsReflectionCell class] forCellReuseIdentifier:SkillsReflectionCellIdentifier];
@@ -237,8 +240,8 @@ typedef NS_ENUM(NSInteger, MenuItemType) {
 		numberOfRowsInSection = sharedReflectionManager.goalsReflections.count;
 	}
 	
-	else if (sectionType == SectionTypeExperience) {
-		numberOfRowsInSection = sharedReflectionManager.experienceReflections.count;
+	else if (sectionType == SectionTypeWorkExperience) {
+		numberOfRowsInSection = sharedReflectionManager.workExperienceReflections.count;
 	}
 	
 	else if (sectionType == SectionTypeEducation) {
@@ -295,12 +298,12 @@ typedef NS_ENUM(NSInteger, MenuItemType) {
 			
 		}
 		
-		if (sectionType == SectionTypeExperience) {
-			ExperienceReflectionCell *experienceReflectionCell = [self.reflectionTableView dequeueReusableCellWithIdentifier:ExperienceReflectionCellIdentifier forIndexPath:indexPath];
+		if (sectionType == SectionTypeWorkExperience) {
+			WorkExperienceReflectionCell *workExperienceReflectionCell = [self.reflectionTableView dequeueReusableCellWithIdentifier:WorkExperienceReflectionCellIdentifier forIndexPath:indexPath];
 			
-			[self configureExperienceReflectionCell:experienceReflectionCell forRowAtIndexPath:indexPath];
+			[self configureWorkExperienceReflectionCell:workExperienceReflectionCell forRowAtIndexPath:indexPath];
 			
-			reflectionCell = experienceReflectionCell;
+			reflectionCell = workExperienceReflectionCell;
 		}
 		
 		else if (sectionType == SectionTypeEducation) {
@@ -321,6 +324,7 @@ typedef NS_ENUM(NSInteger, MenuItemType) {
 		
 		else if (sectionType == SectionTypeSkills) {
 			SkillsReflectionCell *skillsReflectionCell = [self.reflectionTableView dequeueReusableCellWithIdentifier:SkillsReflectionCellIdentifier forIndexPath:indexPath];
+			[skillsReflectionCell setSkillReflectionCellDelegate:self];
 			
 			[self configureSkillsReflectionCell:skillsReflectionCell forRowAtIndexPath:indexPath];
 			
@@ -336,6 +340,8 @@ typedef NS_ENUM(NSInteger, MenuItemType) {
 		cell = [tableView dequeueReusableCellWithIdentifier:ReflectionPaddingCellIdentifier forIndexPath:indexPath];
 	}
 	
+	[cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+	
     return cell;
 }
 
@@ -350,7 +356,7 @@ typedef NS_ENUM(NSInteger, MenuItemType) {
 		
 	}
 	
-	else if (sectionType == SectionTypeExperience) {
+	else if (sectionType == SectionTypeWorkExperience) {
 		NSUInteger numberOfExperienceBackgroundImages = 4;
 		
 		if (reflectionCellIndex % numberOfExperienceBackgroundImages == 0) {
@@ -379,10 +385,22 @@ typedef NS_ENUM(NSInteger, MenuItemType) {
 	}
 	
 	else if (sectionType == SectionTypeLeadershipAndActivities) {
-		NSUInteger numberOfLeadershipAndActivitiesBackgroundImages = 1;
+		NSUInteger numberOfLeadershipAndActivitiesBackgroundImages = 4;
 		
 		if (reflectionCellIndex % numberOfLeadershipAndActivitiesBackgroundImages == 0) {
-			imageName = @"clownFish";
+			imageName = @"Foellinger Auditorium";
+		}
+		
+		else if (reflectionCellIndex % numberOfLeadershipAndActivitiesBackgroundImages == 1) {
+			imageName = @"Apple A6";
+		}
+		
+		else if (reflectionCellIndex % numberOfLeadershipAndActivitiesBackgroundImages == 2) {
+			imageName = @"Planet";
+		}
+		
+		else if (reflectionCellIndex % numberOfLeadershipAndActivitiesBackgroundImages == 3) {
+			imageName = @"Planet Lights";
 		}
 	}
 	
@@ -397,16 +415,14 @@ typedef NS_ENUM(NSInteger, MenuItemType) {
 	[cell setReflectionBackgroundViewImage:[UIImage imageNamed:imageName]];
 }
 
-- (void)configureExperienceReflectionCell:(ExperienceReflectionCell *)experienceReflectionCell forRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)configureWorkExperienceReflectionCell:(WorkExperienceReflectionCell *)workExperienceReflectionCell forRowAtIndexPath:(NSIndexPath *)indexPath {
 	ReflectionManager *sharedReflectionManager = [ReflectionManager sharedReflectionManager];
 	
-	ExperienceReflection *experienceReflection = sharedReflectionManager.experienceReflections[[self reflectionCellIndexForIndexPath:indexPath]];
+	WorkExperienceReflection *workExperienceReflection = sharedReflectionManager.workExperienceReflections[[self reflectionCellIndexForIndexPath:indexPath]];
 	
-	[experienceReflectionCell.employerLabel setText:experienceReflection.employer];
-	[experienceReflectionCell.titleLabel setText:experienceReflection.title];
-	[experienceReflectionCell.locationLabel setText:experienceReflection.location];
-	[experienceReflectionCell.dateLabel setText:experienceReflection.date];
-	[experienceReflectionCell.descriptionLabel setText:experienceReflection.description];
+	[workExperienceReflectionCell.employerLabel setText:workExperienceReflection.employer];
+
+	[self configureExperienceReflectionCell:workExperienceReflectionCell experienceReflection:workExperienceReflection forRowAtIndexPath:indexPath];
 }
 
 - (void)configureEducationReflectionCell:(EducationReflectionCell *)educationReflectionCell forRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -430,11 +446,24 @@ typedef NS_ENUM(NSInteger, MenuItemType) {
 }
 
 - (void)configureLeadershipAndActivitiesReflectionCell:(LeadershipAndActivitiesReflectionCell *)leadershipAndActivitiesReflectionCell forRowAtIndexPath:(NSIndexPath *)indexPath {
+	ReflectionManager *sharedReflectionManager = [ReflectionManager sharedReflectionManager];
 	
+	LeadershipAndActivitiesReflection *leadershipAndActivitiesReflection = sharedReflectionManager.leadershipAndActivitiesReflections[[self reflectionCellIndexForIndexPath:indexPath]];
+	
+	[leadershipAndActivitiesReflectionCell.activityLabel setText:leadershipAndActivitiesReflection.activity];
+	
+	[self configureExperienceReflectionCell:leadershipAndActivitiesReflectionCell experienceReflection:leadershipAndActivitiesReflection forRowAtIndexPath:indexPath];
 }
 
 - (void)configureSkillsReflectionCell:(SkillsReflectionCell *)skillsReflectionCell forRowAtIndexPath:(NSIndexPath *)indexPath {
 	
+}
+
+- (void)configureExperienceReflectionCell:(ExperienceReflectionCell *)experienceReflectionCell experienceReflection:(ExperienceReflection *)experienceReflection forRowAtIndexPath:(NSIndexPath *)indexPath {
+	[experienceReflectionCell.titleLabel setText:experienceReflection.title];
+	[experienceReflectionCell.locationLabel setText:experienceReflection.location];
+	[experienceReflectionCell.dateLabel setText:experienceReflection.date];
+	[experienceReflectionCell.descriptionLabel setText:experienceReflection.description];
 }
 
 #pragma mark - UITableViewDelegate
@@ -464,7 +493,7 @@ typedef NS_ENUM(NSInteger, MenuItemType) {
 		sectionHeader = SECTION_HEADER_GOALS_TITLE;
 	}
 	
-	if (sectionType == SectionTypeExperience) {
+	if (sectionType == SectionTypeWorkExperience) {
 		sectionHeader = SECTION_HEADER_EXPERIENCE_TITLE;
 	}
 	
@@ -503,12 +532,14 @@ typedef NS_ENUM(NSInteger, MenuItemType) {
 	if (indexPath.row % 2 == 0) {
 		SectionType sectionType = [self sectionTypeForSection:indexPath.section];
 		
-		if (sectionType == SectionTypeExperience) {
-			ExperienceReflection *experienceReflection = sharedReflectionManager.experienceReflections[[self reflectionCellIndexForIndexPath:indexPath]];
+		if (sectionType == SectionTypeWorkExperience) {
+			NSArray *workExperienceReflections = sharedReflectionManager.workExperienceReflections;
 			
-			ExperienceReflectionCell *prototypicalExperienceReflectionCell = [self.reflectionTableView dequeueReusableCellWithIdentifier:ExperienceReflectionCellIdentifier];
+			WorkExperienceReflection *experienceReflection = workExperienceReflections[[self reflectionCellIndexForIndexPath:indexPath]];
 			
-			rowHeight = [prototypicalExperienceReflectionCell heightForExperienceReflection:experienceReflection];
+			WorkExperienceReflectionCell *prototypicalWorkExperienceReflectionCell = [self.reflectionTableView dequeueReusableCellWithIdentifier:WorkExperienceReflectionCellIdentifier];
+			
+			rowHeight = [prototypicalWorkExperienceReflectionCell heightForExperienceReflection:experienceReflection];
 		}
 		
 		else if (sectionType == SectionTypeEducation) {
@@ -520,7 +551,13 @@ typedef NS_ENUM(NSInteger, MenuItemType) {
 		}
 		
 		else if (sectionType == SectionTypeLeadershipAndActivities) {
-			rowHeight = 120.0f;
+			NSArray *leadershipAndActivitiesReflections = sharedReflectionManager.leadershipAndActivitiesReflections;
+			
+			LeadershipAndActivitiesReflection *leadershipAndActivitiesReflection = leadershipAndActivitiesReflections[[self reflectionCellIndexForIndexPath:indexPath]];
+			
+			LeadershipAndActivitiesReflectionCell *prototypicalLeadershipAndActivitiesReflectionCell = [self.reflectionTableView dequeueReusableCellWithIdentifier:LeadershipAndActivitiesReflectionCellIdentifier];
+			
+			rowHeight = [prototypicalLeadershipAndActivitiesReflectionCell heightForLeadershipAndActivitiesReflection:leadershipAndActivitiesReflection];
 		}
 		
 		else if (sectionType == SectionTypeSkills) {
@@ -562,7 +599,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	}
 	
 	else if (_selectedMenuItemType == MenuItemTypeExperience) {
-		sectionType = SectionTypeExperience;
+		sectionType = SectionTypeWorkExperience;
 	}
 	
 	else if (_selectedMenuItemType == MenuItemTypeEducation) {
@@ -820,6 +857,18 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	NSLog(@"menu button touched");
 	
 	[self.menu show];
+}
+
+#pragma mark - Skill reflection cell delegate
+
+- (void)skillReflectionCell:(SkillsReflectionCell *)skillReflectionCell skillButtonTouched:(SkillButton *)skillButton {
+	ReflectionManager *sharedReflectionManager = [ReflectionManager sharedReflectionManager];
+	NSDictionary *skillsWikipediaDict = sharedReflectionManager.skillsWikipediaDict;
+	
+	NSString *skill = skillButton.skillLabel.text;
+	NSString *urlStr = [skillsWikipediaDict objectForKey:skill];
+	
+	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlStr]];
 }
 
 #pragma mark - Compose goal button

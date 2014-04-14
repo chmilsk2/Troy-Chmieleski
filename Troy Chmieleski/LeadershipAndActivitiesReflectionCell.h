@@ -6,8 +6,14 @@
 //  Copyright (c) 2014 Troy Chmieleski. All rights reserved.
 //
 
-#import "ReflectionCell.h"
+#import "ExperienceReflectionCell.h"
 
-@interface LeadershipAndActivitiesReflectionCell : ReflectionCell
+@class LeadershipAndActivitiesReflection;
+
+@interface LeadershipAndActivitiesReflectionCell : ExperienceReflectionCell
+
+@property (nonatomic, strong) UILabel *activityLabel;
+
+- (CGFloat)heightForLeadershipAndActivitiesReflection:(LeadershipAndActivitiesReflection *)leadershipAndActivitiesReflection;
 
 @end

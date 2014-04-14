@@ -7,8 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Reflection.h"
+#import "ExperienceReflection.h"
 
-@interface LeadershipAndActivitiesReflection : Reflection
+@interface LeadershipAndActivitiesReflection : ExperienceReflection
+
+@property (nonatomic, strong) NSString *activity;
 
 @end

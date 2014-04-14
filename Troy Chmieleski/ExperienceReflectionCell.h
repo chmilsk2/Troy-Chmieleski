@@ -2,7 +2,7 @@
 //  ExperienceReflectionCell.h
 //  Troy Chmieleski
 //
-//  Created by Troy Chmieleski on 4/6/14.
+//  Created by Troy Chmieleski on 4/14/14.
 //  Copyright (c) 2014 Troy Chmieleski. All rights reserved.
 //
 
@@ -12,7 +12,7 @@
 
 @interface ExperienceReflectionCell : ReflectionCell
 
-@property (nonatomic, strong) UILabel *employerLabel;
+@property (nonatomic, strong) UILabel *primaryLabel;
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *descriptionLabel;
 @property (nonatomic, strong) UILabel *locationLabel;

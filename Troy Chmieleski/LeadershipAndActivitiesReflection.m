@@ -10,4 +10,12 @@
 
 @implementation LeadershipAndActivitiesReflection
 
+- (NSString *)activity {
+	return self.primary;
+}
+
+- (void)setActivity:(NSString *)activity {
+	self.primary = activity;
+}
+
 @end

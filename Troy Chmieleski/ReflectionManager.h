@@ -11,10 +11,11 @@
 @interface ReflectionManager : NSObject
 
 @property (nonatomic, strong, readonly) NSMutableArray *goalsReflections;
-@property (nonatomic, strong, readonly) NSMutableArray *experienceReflections;
+@property (nonatomic, strong, readonly) NSMutableArray *workExperienceReflections;
 @property (nonatomic, strong, readonly) NSMutableArray *educationReflections;
 @property (nonatomic, strong, readonly) NSMutableArray *leadershipAndActivitiesReflections;
 @property (nonatomic, strong, readonly) NSMutableArray *skillsReflections;
+@property (nonatomic, strong, readonly) NSMutableDictionary *skillsWikipediaDict;
 
 + (instancetype)sharedReflectionManager;
 

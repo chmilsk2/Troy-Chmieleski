@@ -10,4 +10,6 @@
 
 @interface SkillsReflection : Reflection
 
+@property (nonatomic, strong) NSArray *skills;
+
 @end

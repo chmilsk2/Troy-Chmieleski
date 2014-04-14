@@ -7,8 +7,29 @@
 //
 
 #import "ReflectionManager.h"
-#import "ExperienceReflection.h"
+#import "WorkExperienceReflection.h"
 #import "EducationReflection.h"
+#import "LeadershipAndActivitiesReflection.h"
+#import "SkillsReflection.h"
+
+// Skills
+#define SKILL_C @"C"
+#define SKILL_OBJECTIVE_C @"Objective-C"
+#define SKILL_C_PLUS_PLUS @"C++"
+#define SKILL_NODE_JS @"Node.js"
+#define SKILL_JAVASCRIPT @"JavaScript"
+#define SKILL_SQL @"SQL"
+#define SKILL_AWS @"AWS"
+#define SKILL_HTML @"HTML"
+#define SKILL_CSS @"CSS"
+#define SKILL_PYTHON @"Python"
+#define SKILL_GIT @"Git"
+#define SKILL_LATEX @"LaTeX"
+#define SKILL_ASSEMBLY @"Assembly"
+#define SKILL_COMPUTER_ARCHITECTURE @"Computer Architecture"
+#define SKILL_CIRCUIT_DESIGN @"Circuit Design"
+#define SKILL_DIGITAL_SIGNAL_PROCESSING @"Digital Signal Processing"
+#define SKILL_SOLDERING @"Soldering"
 
 @implementation ReflectionManager
 
@@ -29,10 +50,11 @@
 	
     if (self) {
 		[self setUpGoalsReflections];
-		[self setUpExperienceReflections];
+		[self setUpWorkExperienceReflections];
 		[self setUpEducationReflections];
 		[self setUpLeadershipAndActivitiesReflections];
 		[self setUpSkillsReflections];
+		[self setUpSkillsWikipediaDict];
     }
 	
     return self;
@@ -42,38 +64,38 @@
 	_goalsReflections = [[NSMutableArray alloc] init];
 }
 
-- (void)setUpExperienceReflections {
-	_experienceReflections = [[NSMutableArray alloc] init];
+- (void)setUpWorkExperienceReflections {
+	_workExperienceReflections = [[NSMutableArray alloc] init];
 	
-	ExperienceReflection *iOSInternExperienceReflection = [[ExperienceReflection alloc] init];
+	WorkExperienceReflection *iOSInternExperienceReflection = [[WorkExperienceReflection alloc] init];
 	[iOSInternExperienceReflection setEmployer:@"DONEBOX"];
 	[iOSInternExperienceReflection setTitle:@"iOS Intern"];
 	[iOSInternExperienceReflection setDescription:@"Developing an app that links together email, contacts, calendars and todos"];
 	[iOSInternExperienceReflection setLocation:@"Cambridge, MA"];
 	[iOSInternExperienceReflection setDate:@"Jun '13 \u2013 Present"];
 	
-	ExperienceReflection *uiucTinnitusLabIOSDeveloperExperienceReflection = [[ExperienceReflection alloc] init];
+	WorkExperienceReflection *uiucTinnitusLabIOSDeveloperExperienceReflection = [[WorkExperienceReflection alloc] init];
 	[uiucTinnitusLabIOSDeveloperExperienceReflection setEmployer:@"UIUC TINNITUS LAB"];
 	[uiucTinnitusLabIOSDeveloperExperienceReflection setTitle:@"iOS Developer"];
 	[uiucTinnitusLabIOSDeveloperExperienceReflection setDescription:@"Designing fractal tone therapy for Tinnitus that leverages the power of Core Audio"];
 	[uiucTinnitusLabIOSDeveloperExperienceReflection setLocation:@"Urbana, IL"];
 	[uiucTinnitusLabIOSDeveloperExperienceReflection setDate:@"Apr '13 \u2013 Present"];
 	
-	ExperienceReflection *citesOnsiteConsultantExperienceReflection = [[ExperienceReflection alloc] init];
+	WorkExperienceReflection *citesOnsiteConsultantExperienceReflection = [[WorkExperienceReflection alloc] init];
 	[citesOnsiteConsultantExperienceReflection setEmployer:@"CITES ONSITE CONSULTING"];
 	[citesOnsiteConsultantExperienceReflection setTitle:@"Consultant"];
 	[citesOnsiteConsultantExperienceReflection setDescription:@"Facilitated on-site computer consulting services in both home and enterprise environments"];
 	[citesOnsiteConsultantExperienceReflection setLocation:@"Urbana, IL"];
 	[citesOnsiteConsultantExperienceReflection setDate:@"Sep '12 \u2013 May '13"];
 	
-	ExperienceReflection *universityRelationsOfficeAssistantExperienceReflection = [[ExperienceReflection alloc] init];
+	WorkExperienceReflection *universityRelationsOfficeAssistantExperienceReflection = [[WorkExperienceReflection alloc] init];
 	[universityRelationsOfficeAssistantExperienceReflection setEmployer:@"UNIVERSITY RELATIONS"];
 	[universityRelationsOfficeAssistantExperienceReflection setTitle:@"Office Assistant"];
 	[universityRelationsOfficeAssistantExperienceReflection setDescription:@"Updated official records and PrezRelease, the blog of the University of Illinois president"];
 	[universityRelationsOfficeAssistantExperienceReflection setLocation:@"Urbana, IL"];
 	[universityRelationsOfficeAssistantExperienceReflection setDate:@"Feb '12 \u2013 May '12"];
 	
-	[_experienceReflections addObjectsFromArray:@[iOSInternExperienceReflection, uiucTinnitusLabIOSDeveloperExperienceReflection, citesOnsiteConsultantExperienceReflection, universityRelationsOfficeAssistantExperienceReflection]];
+	[_workExperienceReflections addObjectsFromArray:@[iOSInternExperienceReflection, uiucTinnitusLabIOSDeveloperExperienceReflection, citesOnsiteConsultantExperienceReflection, universityRelationsOfficeAssistantExperienceReflection]];
 }
 
 - (void)setUpEducationReflections {
@@ -93,15 +115,74 @@
 }
 
 - (void)setUpLeadershipAndActivitiesReflections {
-	_leadershipAndActivitiesReflections = [[NSMutableArray alloc] init];
+	_leadershipAndActivitiesReflections = [NSMutableArray array];
 	
-	[_leadershipAndActivitiesReflections addObject:[NSNull null]];
+	LeadershipAndActivitiesReflection *hknCorporateCommitteeActivity = [[LeadershipAndActivitiesReflection alloc] init];
+	[hknCorporateCommitteeActivity setActivity:@"HKN CORPORATE COMMITTEE"];
+	[hknCorporateCommitteeActivity setTitle:@"Member"];
+	[hknCorporateCommitteeActivity setDescription:@"Foster corporate relations by hosting tech talks and information sessions with employers"];
+	[hknCorporateCommitteeActivity setLocation:@"Urbana, IL"];
+	[hknCorporateCommitteeActivity setDate:@"Sep '12 \u2013 Present"];
+	
+	LeadershipAndActivitiesReflection *ieeeActivity = [[LeadershipAndActivitiesReflection alloc] init];
+	[ieeeActivity setActivity:@"IEEE"];
+	[ieeeActivity setTitle:@"Workshops Committee Member"];
+	[ieeeActivity setDescription:@"Maintain communication with a team of engineers to oversee and design future projects"];
+	[ieeeActivity setLocation:@"Urbana, IL"];
+	[ieeeActivity setDate:@"Oct '11 \u2013 Present"];
+	
+	LeadershipAndActivitiesReflection *innovationLivingLearningCommunityActivity = [[LeadershipAndActivitiesReflection alloc] init];
+	[innovationLivingLearningCommunityActivity setActivity:@"Innovation Living Learning Community"];
+	[innovationLivingLearningCommunityActivity setTitle:@"Entrepreneur in Residence "];
+	[innovationLivingLearningCommunityActivity setDescription:@"Selected participant for the 2013 Entrepreneurship Workshop in Silicon Valley, hosted by TEC"];
+	[innovationLivingLearningCommunityActivity setLocation: @"Urbana, IL"];
+	[innovationLivingLearningCommunityActivity setDate:@"Aug '11 \u2013 Present"];
+	
+	LeadershipAndActivitiesReflection *tutorActivity = [[LeadershipAndActivitiesReflection alloc] init];
+	[tutorActivity setActivity:@"Intro to ECE/Computer Engineering I"];
+	[tutorActivity setTitle:@"Tutor"];
+	[tutorActivity setDescription:@"Provided Supervised Study Sessions (SSS) to help students solve previous exam problems"];
+	[tutorActivity setLocation:@"Urbana, IL"];
+	[tutorActivity setDate:@"Sep '11 \u2013 May '13"];
+	
+	[_leadershipAndActivitiesReflections addObjectsFromArray:@[hknCorporateCommitteeActivity, ieeeActivity, innovationLivingLearningCommunityActivity, tutorActivity]];
 }
 
 - (void)setUpSkillsReflections {
 	_skillsReflections = [[NSMutableArray alloc] init];
 	
-	[_skillsReflections addObject:[NSNull null]];
+	NSArray *skills = @[SKILL_C, SKILL_OBJECTIVE_C, SKILL_C_PLUS_PLUS, SKILL_JAVASCRIPT, SKILL_SQL, SKILL_AWS, SKILL_HTML, SKILL_CSS, SKILL_PYTHON, SKILL_GIT, SKILL_LATEX, SKILL_ASSEMBLY, SKILL_COMPUTER_ARCHITECTURE, SKILL_CIRCUIT_DESIGN, SKILL_DIGITAL_SIGNAL_PROCESSING, SKILL_SOLDERING];
+	
+	SkillsReflection *skillsReflection = [[SkillsReflection alloc] init];
+	[skillsReflection setSkills:skills];
+	
+	[_skillsReflections addObject:skillsReflection];
+}
+
+- (void)setUpSkillsWikipediaDict {
+	_skillsWikipediaDict = [NSMutableDictionary dictionary];
+	
+	for (SkillsReflection *skillsReflection in self.skillsReflections) {
+		NSArray *skills = skillsReflection.skills;
+		
+		for (NSString *skill in skills) {
+			NSString *url;
+			
+			if ([skill isEqualToString:SKILL_C]) {
+				url = @"http://en.wikipedia.org/wiki/C_(programming_language)";
+			}
+			
+			else if ([skill isEqualToString:SKILL_OBJECTIVE_C]) {
+				url = @"http://en.wikipedia.org/wiki/Objective-C";
+			}
+			
+			else {
+				url = @"";
+			}
+			
+			[_skillsWikipediaDict setObject:url forKey:skill];
+		}
+	}
 }
 
 @end

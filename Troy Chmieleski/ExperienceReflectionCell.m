@@ -1,18 +1,17 @@
 //
-//  ExperienceReflectionCell.m
+//  ExperienceCell.m
 //  Troy Chmieleski
 //
-//  Created by Troy Chmieleski on 4/6/14.
+//  Created by Troy Chmieleski on 4/14/14.
 //  Copyright (c) 2014 Troy Chmieleski. All rights reserved.
 //
 
 #import "ExperienceReflectionCell.h"
-
 #import "ExperienceReflection.h"
 
-// employer label
-#define EMPLOYER_LABEL_HORIZONTAL_MARGIN 14.0f
-#define EMPLOYER_LABEL_TOP_VERTICAL_MARGIN 30.0f
+// primary label
+#define PRIMARY_LABEL_HORIZONTAL_MARGIN 14.0f
+#define PRIMARY_LABEL_TOP_VERTICAL_MARGIN 30.0f
 
 // title label
 #define TITLE_LABEL_HORIZONTAL_MARGIN 14.0f
@@ -35,27 +34,25 @@
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
 	self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
 	
-    if (self) {
-		[self addSubview:self.employerLabel];
+	if (self) {
+		[self addSubview:self.primaryLabel];
 		[self addSubview:self.titleLabel];
 		[self addSubview:self.locationLabel];
 		[self addSubview:self.dateLabel];
 		[self addSubview:self.descriptionLabel];
-    }
+	}
 	
-    return self;
+	return self;
 }
-
-#pragma mark - Height
 
 - (CGFloat)heightForExperienceReflection:(ExperienceReflection *)experienceReflection {
 	CGFloat height = 0;
 	
-	// employer label
-	height += EMPLOYER_LABEL_TOP_VERTICAL_MARGIN;
+	// primary label
+	height += PRIMARY_LABEL_TOP_VERTICAL_MARGIN;
 	
-	CGRect employerRect = [self employerRectForEmployer:experienceReflection.employer];
-	height += employerRect.size.height;
+	CGRect primaryRect = [self primaryRectForPrimary:experienceReflection.primary];
+	height += primaryRect.size.height;
 	
 	// title label
 	CGRect titleRect = [self titleRectForTitle:experienceReflection.title];
@@ -90,30 +87,30 @@
 	return height;
 }
 
-#pragma mark - Employer label
+#pragma mark - Primary label
 
-- (UILabel *)employerLabel {
-	if (!_employerLabel) {
-		_employerLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-		[_employerLabel setNumberOfLines:0];
-		[_employerLabel setFont:[self employerLabelFont]];
-		[_employerLabel setTextColor:[UIColor whiteColor]];
+- (UILabel *)primaryLabel {
+	if (!_primaryLabel) {
+		_primaryLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+		[_primaryLabel setNumberOfLines:0];
+		[_primaryLabel setFont:[self primaryLabelFont]];
+		[_primaryLabel setTextColor:[UIColor whiteColor]];
 	}
 	
-	return _employerLabel;
+	return _primaryLabel;
 }
 
 
-- (CGRect)employerRectForEmployer:(NSString *)employer {
-	CGRect employerRect = CGRectIntegral([employer boundingRectWithSize:CGSizeMake(self.bounds.size.width - 2*EMPLOYER_LABEL_HORIZONTAL_MARGIN, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [self employerLabelFont]} context:nil]);
+- (CGRect)primaryRectForPrimary:(NSString *)primary {
+	CGRect primaryRect = CGRectIntegral([primary boundingRectWithSize:CGSizeMake(self.bounds.size.width - 2*PRIMARY_LABEL_HORIZONTAL_MARGIN, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [self primaryLabelFont]} context:nil]);
 	
-	return employerRect;
+	return primaryRect;
 }
 
-- (UIFont *)employerLabelFont {
-	UIFont *employerLabelFont = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
+- (UIFont *)primaryLabelFont {
+	UIFont *primaryLabelFont = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
 	
-	return employerLabelFont;
+	return primaryLabelFont;
 }
 
 #pragma mark - Title label
@@ -219,15 +216,15 @@
 - (void)layoutSubviews {
 	[super layoutSubviews];
 	
-	// employer label
-	CGRect employerRect = [self employerRectForEmployer:self.employerLabel.text];
+	// primary label
+	CGRect primaryRect = [self primaryRectForPrimary:self.primaryLabel.text];
 	
-	[self.employerLabel setFrame:CGRectMake(EMPLOYER_LABEL_HORIZONTAL_MARGIN, EMPLOYER_LABEL_TOP_VERTICAL_MARGIN, employerRect.size.width, employerRect.size.height)];
+	[self.primaryLabel setFrame:CGRectMake(PRIMARY_LABEL_HORIZONTAL_MARGIN, PRIMARY_LABEL_TOP_VERTICAL_MARGIN, primaryRect.size.width, primaryRect.size.height)];
 	
 	// title label
 	CGRect titleRect = [self titleRectForTitle:self.titleLabel.text];
 	
-	[self.titleLabel setFrame:CGRectMake(TITLE_LABEL_HORIZONTAL_MARGIN, self.employerLabel.frame.origin.y + self.employerLabel.bounds.size.height + TITLE_LABEL_TOP_VERTICAL_MARGIN, titleRect.size.width, titleRect.size.height)];
+	[self.titleLabel setFrame:CGRectMake(TITLE_LABEL_HORIZONTAL_MARGIN, self.primaryLabel.frame.origin.y + self.primaryLabel.bounds.size.height + TITLE_LABEL_TOP_VERTICAL_MARGIN, titleRect.size.width, titleRect.size.height)];
 	
 	// date label
 	CGRect dateRect = [self dateRectForDate:self.dateLabel.text];
@@ -254,5 +251,6 @@
 	
 	[self.locationLabel setFrame:CGRectMake((self.bounds.size.width - locationRect.size.width)/2, self.descriptionLabel.frame.origin.y + self.descriptionLabel.bounds.size.height + LOCATION_LABEL_VERTICAL_MARGIN, locationRect.size.width, locationRect.size.height)];
 }
+
 
 @end

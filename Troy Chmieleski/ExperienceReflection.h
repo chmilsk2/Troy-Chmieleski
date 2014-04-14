@@ -10,7 +10,7 @@
 
 @interface ExperienceReflection : Reflection
 
-@property NSString *employer;
+@property NSString *primary;
 @property NSString *title;
 @property NSString *location;
 @property NSString *date;
