@@ -11,7 +11,8 @@
 @interface EducationReflection : Reflection
 
 @property (nonatomic, strong) NSString *school;
-@property (nonatomic, strong) NSString *degree;
+@property (nonatomic, strong) NSString *major;
+@property (nonatomic, strong) NSString *minor;
 @property (nonatomic, strong) NSString *expectedGraduationDate;
 @property (nonatomic, strong) NSString *gpa;
 

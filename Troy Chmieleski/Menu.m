@@ -19,12 +19,14 @@
 @property (nonatomic, strong) UIView *menuView;
 @property (nonatomic, strong) UIView *menuBackgroundView;
 @property (nonatomic, strong) UITapGestureRecognizer *backgroundTapGestureRecognizer;
+@property (nonatomic, strong) UIPanGestureRecognizer *menuPanGestureRecognizer;
 
 @end
 
 @implementation Menu {
 	BOOL _isShowing;
 	BOOL _isHiding;
+	BOOL _isPanning;
 }
 
 - (id)initWithFrame:(CGRect)frame {
@@ -53,14 +55,37 @@
 
 #pragma mark - Gesture recognizers
 
-- (void)backgroundTapped:(UITapGestureRecognizer *)tapGestureRecognizer {
-	NSLog(@"background tapped");
-	
-	[self hide];
+- (void)backgroundTapped:(UITapGestureRecognizer *)tapGestureRecognizer {	
+	if (!_isPanning) {
+		[self hide];
+	}
 }
 
 - (void)menuPanned:(UIPanGestureRecognizer *)panGestureRecognizer {
 	NSLog(@"menu panned");
+	
+	if (panGestureRecognizer.state == UIGestureRecognizerStateBegan) {
+		_isPanning = YES;
+	}
+	
+	CGPoint velocity = [panGestureRecognizer velocityInView:panGestureRecognizer.view];
+	CGPoint translation = [panGestureRecognizer translationInView:panGestureRecognizer.view];
+	
+	CGRect frame = panGestureRecognizer.view.frame;
+	frame.origin.x = (translation.x < 0) ? translation.x: 0;
+	[panGestureRecognizer.view setFrame:frame];
+	
+	if (panGestureRecognizer.state == UIGestureRecognizerStateEnded) {
+		if (velocity.x < 0) {
+			[self hide];
+		}
+		
+		else {
+			[self show];
+		}
+		
+		_isPanning = NO;
+	}
 }
 
 #pragma mark - Show 
@@ -184,11 +209,22 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	if (!_menuView) {
 		_menuView = [[UIView alloc] initWithFrame:CGRectZero];
 		[_menuView setBackgroundColor:[UIColor whiteColor]];
+		[_menuView addGestureRecognizer:self.menuPanGestureRecognizer];
 		
 		[_menuView addSubview:self.menuTableView];
 	}
 	
 	return _menuView;
+}
+
+#pragma mark - Menu pan gesture recognizer
+
+- (UIPanGestureRecognizer *)menuPanGestureRecognizer {
+	if (!_menuPanGestureRecognizer) {
+		_menuPanGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(menuPanned:)];
+	}
+	
+	return _menuPanGestureRecognizer;
 }
 
 #pragma mark - Menu background view

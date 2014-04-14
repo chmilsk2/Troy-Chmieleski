@@ -23,6 +23,5 @@
 - (CGFloat)height;
 - (void)hideBackgroundImageView;
 - (void)showBackgroundImageView;
-- (void)animate;
 
 @end

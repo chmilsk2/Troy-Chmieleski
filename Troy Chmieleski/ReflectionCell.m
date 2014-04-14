@@ -76,7 +76,7 @@
 		contentOffset = [self.delegate contentOffsetForReflectionCell:self];
 	}
 	
-	[self.backgroundImageView setFrame:CGRectMake(contentOffset.x, contentOffset.y, backgroundImage.size.width, backgroundImage.size.height)];
+	[self.backgroundImageView setFrame:CGRectMake(contentOffset.x, contentOffset.y/2, backgroundImage.size.width, backgroundImage.size.height)];
 }
 
 @end

@@ -13,7 +13,8 @@
 @interface EducationReflectionCell : ReflectionCell
 
 @property (nonatomic, strong) UILabel *schoolLabel;
-@property (nonatomic, strong) UILabel *degreeLabel;
+@property (nonatomic, strong) UILabel *majorLabel;
+@property (nonatomic, strong) UILabel *minorLabel;
 @property (nonatomic, strong) UILabel *expectedGraduationDateLabel;
 @property (nonatomic, strong) UILabel *gpaLabel;
 @property (nonatomic, strong) UITextView *descriptionTextView;

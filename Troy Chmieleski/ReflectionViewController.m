@@ -11,6 +11,9 @@
 // Menu
 #import "Menu.h"
 
+// Reflection manager
+#import "ReflectionManager.h"
+
 // Menu profile cell
 #import "MenuProfileCell.h"
 
@@ -29,31 +32,32 @@
 // Education reflection cell
 #import "EducationReflectionCell.h"
 
-typedef NS_ENUM(NSUInteger, MenuSectionType) {
-	MenuSectionTypeProfile = 0,
-	MenuSectionTypeItem = 1
-};
+// Leadership and activities reflection
+#import "LeadershipAndActivitiesReflection.h"
 
-typedef NS_ENUM(NSInteger, MenuItemType) {
-	MenuItemTypeAll = 0,
-	MenuItemTypeGoals = 1,
-	MenuItemTypeExperience = 2,
-	MenuItemTypeEducation = 3,
-	MenuItemTypeLeadershipAndActivities = 4,
-	MenuItemTypeSkills = 5
-};
+// Leadership and activities reflection cell
+#import "LeadershipAndActivitiesReflectionCell.h" 
+
+// Skills reflection
+#import "SkillsReflection.h"
+
+// Skills reflection cell
+#import "SkillsReflectionCell.h"
 
 // Google Analytics
 #define SCREEN_NAME @"Reflection Screen"
 
 #define ExperienceReflectionCellIdentifier @"Experience Reflection Cell Identifier"
 #define EducationReflectionCellIdentifier @"Education Reflection Cell Identifier"
+#define LeadershipAndActivitiesReflectionCellIdentifier @"Leadership and Activities Reflection Cell Identifier"
+#define SkillsReflectionCellIdentifier @"Skills Reflection Cell Identifier"
 #define ReflectionPaddingCellIdentifier @"Reflection Padding Cell Identifier"
 
-#define NUMBER_OF_SECTIONS 4
+#define NUMBER_OF_SECTIONS 5
 #define SECTION_HEADER_HORIZONTAL_MARGIN 14.0f
 #define SECTION_HEADER_VERTICAL_MARGIN 10.0f
 #define SECTION_HEADER_BACKGROUND_OPACITY 1.0f
+#define SECTION_HEADER_GOALS_TITLE @"GOALS"
 #define SECTION_HEADER_EXPERIENCE_TITLE @"EXPERIENCE"
 #define SECTION_HEADER_EDUCATION_TITLE @"EDUCATION"
 #define SECTION_HEADER_LEADERSHIP_AND_ACTIVITIES_TITLE @"LEADERSHIP & ACTIVITIES"
@@ -71,7 +75,7 @@ typedef NS_ENUM(NSInteger, MenuItemType) {
 // Menu cell
 #define MENU_ITEM_ROW_HEIGHT 60.0f
 
-#define MENU_HORIZONTAL_MARGIN 40.0f
+#define MENU_HORIZONTAL_MARGIN 60.0f
 #define MENU_NUMBER_OF_SECTIONS 2
 #define MENU_NUMBER_OF_PROFILE_ROWS 1
 #define MENU_ITEM_ALL @"ALL"
@@ -100,17 +104,34 @@ typedef NS_ENUM(NSInteger, MenuItemType) {
 // Status bar height
 #define kStatusBarHeight [UIApplication sharedApplication].statusBarFrame.size.height
 
+// Reflections
+
 typedef NS_ENUM(NSInteger, SectionType) {
-	SectionTypeExperience = 0,
-	SectionTypeEducation = 1,
-	SectionTypeLeadershipAndActivities = 2,
-	SectionTypeSkills = 3
+	SectionTypeGoals = 0,
+	SectionTypeExperience = 1,
+	SectionTypeEducation = 2,
+	SectionTypeLeadershipAndActivities = 3,
+	SectionTypeSkills = 4
+};
+
+// Menu
+
+typedef NS_ENUM(NSUInteger, MenuSectionType) {
+	MenuSectionTypeProfile = 0,
+	MenuSectionTypeItem = 1
+};
+
+typedef NS_ENUM(NSInteger, MenuItemType) {
+	MenuItemTypeAll = 0,
+	MenuItemTypeGoals = 1,
+	MenuItemTypeExperience = 2,
+	MenuItemTypeEducation = 3,
+	MenuItemTypeLeadershipAndActivities = 4,
+	MenuItemTypeSkills = 5
 };
 
 @interface ReflectionViewController () <MenuProfileCellDelegate, ReflectionCelDelegate, MenuDataSource, MenuDelegate>
 
-@property (nonatomic, strong) NSMutableArray *experienceReflections;
-@property (nonatomic, strong) NSMutableArray *educationReflections;
 @property (nonatomic, strong) NSArray *menuItems;
 @property (nonatomic, strong) Menu *menu;
 @property (nonatomic, strong) UIButton *menuButton;
@@ -118,7 +139,9 @@ typedef NS_ENUM(NSInteger, SectionType) {
 
 @end
 
-@implementation ReflectionViewController
+@implementation ReflectionViewController {
+	MenuItemType _selectedMenuItemType;
+}
 
 - (id)init {
     self = [super init];
@@ -128,11 +151,6 @@ typedef NS_ENUM(NSInteger, SectionType) {
         [self setScreenName:SCREEN_NAME];
 		
 		[self setUpMenu];
-		
-		[self setUpExperienceReflections];
-		[self setUpEducationReflections];
-		[self setUpLeadershipAndActivitiesReflections];
-		[self setUpSkillsReflections];
 		
 		[self setUpReflectionTableView];
 		
@@ -163,6 +181,8 @@ typedef NS_ENUM(NSInteger, SectionType) {
 - (void)setUpReflectionTableView {
 	[self.reflectionTableView registerClass:[ExperienceReflectionCell class] forCellReuseIdentifier:ExperienceReflectionCellIdentifier];
 	[self.reflectionTableView registerClass:[EducationReflectionCell class] forCellReuseIdentifier:EducationReflectionCellIdentifier];
+	[self.reflectionTableView registerClass:[LeadershipAndActivitiesReflectionCell class] forCellReuseIdentifier:LeadershipAndActivitiesReflectionCellIdentifier];
+	[self.reflectionTableView registerClass:[SkillsReflectionCell class] forCellReuseIdentifier:SkillsReflectionCellIdentifier];
 	[self.reflectionTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:ReflectionPaddingCellIdentifier];
 	[self.reflectionTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
 }
@@ -174,60 +194,8 @@ typedef NS_ENUM(NSInteger, SectionType) {
 	[self.menu.menuTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
 	
 	_menuItems = @[@(MenuItemTypeAll), @(MenuItemTypeGoals), @(MenuItemTypeExperience), @(MenuItemTypeEducation), @(MenuItemTypeLeadershipAndActivities), @(MenuItemTypeSkills)];
-}
-
-- (void)setUpExperienceReflections {
-	_experienceReflections = [[NSMutableArray alloc] init];
 	
-	ExperienceReflection *iOSInternExperienceReflection = [[ExperienceReflection alloc] init];
-	[iOSInternExperienceReflection setEmployer:@"DONEBOX"];
-	[iOSInternExperienceReflection setTitle:@"iOS Intern"];
-	[iOSInternExperienceReflection setDescription:@"Developing an app that links together email, calendars and todos"];
-	[iOSInternExperienceReflection setLocation:@"Cambridge, MA"];
-	[iOSInternExperienceReflection setDate:@"June '13 - Present"];
-	
-	ExperienceReflection *uiucTinnitusLabIOSDeveloperExperienceReflection = [[ExperienceReflection alloc] init];
-	[uiucTinnitusLabIOSDeveloperExperienceReflection setEmployer:@"UIUC TINNITUS LAB"];
-	[uiucTinnitusLabIOSDeveloperExperienceReflection setTitle:@"iOS Developer"];
-	[uiucTinnitusLabIOSDeveloperExperienceReflection setDescription:@"Designing fractal tone therapy for Tinnitus that leverages the power of Core Audio"];
-	[uiucTinnitusLabIOSDeveloperExperienceReflection setLocation:@"Urbana, IL"];
-	[uiucTinnitusLabIOSDeveloperExperienceReflection setDate:@"April '13 - Present"];
-	
-	ExperienceReflection *citesOnsiteConsultantExperienceReflection = [[ExperienceReflection alloc] init];
-	[citesOnsiteConsultantExperienceReflection setEmployer:@"CITES ONSITE CONSULTING"];
-	[citesOnsiteConsultantExperienceReflection setTitle:@"Computer Consultant"];
-	[citesOnsiteConsultantExperienceReflection setDescription:@"Facilitated on-site computer consulting services in both home and enterprise environments"];
-	[citesOnsiteConsultantExperienceReflection setLocation:@"Urbana, IL"];
-	[citesOnsiteConsultantExperienceReflection setDate:@"September '12 - May '13"];
-	
-	ExperienceReflection *universityRelationsOfficeAssistantExperienceReflection = [[ExperienceReflection alloc] init];
-	[universityRelationsOfficeAssistantExperienceReflection setEmployer:@"UNIVERSITY RELATIONS"];
-	[universityRelationsOfficeAssistantExperienceReflection setTitle:@"Office Assistant"];
-	[universityRelationsOfficeAssistantExperienceReflection setDescription:@"Updated official records and PrezRelease, the blog of the University of Illinois president"];
-	[universityRelationsOfficeAssistantExperienceReflection setLocation:@"Urbana, IL"];
-	[universityRelationsOfficeAssistantExperienceReflection setDate:@"February '12 - May '12"];
-	
-	[_experienceReflections addObjectsFromArray:@[iOSInternExperienceReflection, uiucTinnitusLabIOSDeveloperExperienceReflection, citesOnsiteConsultantExperienceReflection, universityRelationsOfficeAssistantExperienceReflection]];
-}
-
-- (void)setUpEducationReflections {
-	_educationReflections = [NSMutableArray array];
-	
-	EducationReflection *universityReflection = [[EducationReflection alloc] init];
-	[universityReflection setSchool:@"UIUC"];
-	[universityReflection setDegree:@"B.S. in E.E., Minor in C.S."];
-	[universityReflection setExpectedGraduationDate:@"May '15"];
-	[universityReflection setGpa:@"GPA: 3.65/4.00"];
-	
-	[_educationReflections addObjectsFromArray:@[universityReflection]];
-}
-
-- (void)setUpLeadershipAndActivitiesReflections {
-	
-}
-
-- (void)setUpSkillsReflections {
-	
+	_selectedMenuItemType = MenuItemTypeAll;
 }
 
 #pragma mark - Reflection cell delegate
@@ -243,29 +211,49 @@ typedef NS_ENUM(NSInteger, SectionType) {
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return NUMBER_OF_SECTIONS;
+    NSInteger numberOfSections = 0;
+	
+	if (_selectedMenuItemType == MenuItemTypeAll) {
+		numberOfSections = NUMBER_OF_SECTIONS;
+	}
+	
+	else {
+		numberOfSections = 1;
+	}
+	
+	return numberOfSections;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	NSInteger numberOfRows = 0;
 	
-	if (section == SectionTypeExperience) {
-		numberOfRows = _experienceReflections.count;
+	ReflectionManager *sharedReflectionManager = [ReflectionManager sharedReflectionManager];
+	
+	SectionType sectionType = [self sectionTypeForSection:section];
+	
+	CGFloat numberOfRowsInSection = 0;
+	
+	if (sectionType == SectionTypeGoals) {
+		numberOfRowsInSection = sharedReflectionManager.goalsReflections.count;
 	}
 	
-	else if (section == SectionTypeEducation) {
-		numberOfRows = _educationReflections.count;
+	else if (sectionType == SectionTypeExperience) {
+		numberOfRowsInSection = sharedReflectionManager.experienceReflections.count;
 	}
 	
-	else if (section == SectionTypeLeadershipAndActivities) {
-		numberOfRows = 0;
+	else if (sectionType == SectionTypeEducation) {
+		numberOfRowsInSection = sharedReflectionManager.educationReflections.count;
 	}
 	
-	else if (section == SectionTypeSkills) {
-		numberOfRows = 0;
+	else if (sectionType == SectionTypeLeadershipAndActivities) {
+		numberOfRowsInSection = sharedReflectionManager.leadershipAndActivitiesReflections.count;
 	}
 	
-	numberOfRows = numberOfRows*2;
+	else if (sectionType == SectionTypeSkills) {
+		numberOfRowsInSection = sharedReflectionManager.skillsReflections.count;
+	}
+	
+	numberOfRows += 2*numberOfRowsInSection;
 	
 	return numberOfRows;
 }
@@ -278,7 +266,9 @@ typedef NS_ENUM(NSInteger, SectionType) {
 	UIView *sectionHeaderBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, sectionHeaderHeight)];
 	[sectionHeaderBackgroundView setBackgroundColor:[UIColor whiteColor]];
 	
-	NSString *sectionHeader= [self sectionHeaderForSectionType:section];
+	SectionType sectionType = [self sectionTypeForSection:section];
+	
+	NSString *sectionHeader= [self sectionHeaderForSectionType:sectionType];
 	
 	CGRect sectionHeaderRect = [self sectionHeaderRectForSectionHeader:sectionHeader];
 	
@@ -299,7 +289,13 @@ typedef NS_ENUM(NSInteger, SectionType) {
 	if (indexPath.row % 2 == 0) {
 		ReflectionCell *reflectionCell;
 		
-		if (indexPath.section == SectionTypeExperience) {
+		SectionType sectionType = [self sectionTypeForSection:indexPath.section];
+		
+		if (sectionType == SectionTypeGoals) {
+			
+		}
+		
+		if (sectionType == SectionTypeExperience) {
 			ExperienceReflectionCell *experienceReflectionCell = [self.reflectionTableView dequeueReusableCellWithIdentifier:ExperienceReflectionCellIdentifier forIndexPath:indexPath];
 			
 			[self configureExperienceReflectionCell:experienceReflectionCell forRowAtIndexPath:indexPath];
@@ -307,7 +303,7 @@ typedef NS_ENUM(NSInteger, SectionType) {
 			reflectionCell = experienceReflectionCell;
 		}
 		
-		else if (indexPath.section == SectionTypeEducation) {
+		else if (sectionType == SectionTypeEducation) {
 			EducationReflectionCell *educationReflectionCell = [self.reflectionTableView dequeueReusableCellWithIdentifier:EducationReflectionCellIdentifier forIndexPath:indexPath];
 			
 			[self configureEducationReflectionCell:educationReflectionCell forRowAtIndexPath:indexPath];
@@ -315,12 +311,20 @@ typedef NS_ENUM(NSInteger, SectionType) {
 			reflectionCell = educationReflectionCell;
 		}
 		
-		else if (indexPath.section == SectionTypeLeadershipAndActivities) {
+		else if (sectionType == SectionTypeLeadershipAndActivities) {
+			LeadershipAndActivitiesReflectionCell *leadershipAndActivitiesReflectionCell = [self.reflectionTableView dequeueReusableCellWithIdentifier:LeadershipAndActivitiesReflectionCellIdentifier forIndexPath:indexPath];
 			
+			[self configureLeadershipAndActivitiesReflectionCell:leadershipAndActivitiesReflectionCell forRowAtIndexPath:indexPath];
+			
+			reflectionCell = leadershipAndActivitiesReflectionCell;
 		}
 		
-		else if (indexPath.section == SectionTypeSkills) {
+		else if (sectionType == SectionTypeSkills) {
+			SkillsReflectionCell *skillsReflectionCell = [self.reflectionTableView dequeueReusableCellWithIdentifier:SkillsReflectionCellIdentifier forIndexPath:indexPath];
 			
+			[self configureSkillsReflectionCell:skillsReflectionCell forRowAtIndexPath:indexPath];
+			
+			reflectionCell = skillsReflectionCell;
 		}
 		
 		[reflectionCell setDelegate:self];
@@ -338,29 +342,65 @@ typedef NS_ENUM(NSInteger, SectionType) {
 - (void)configureReflectionCell:(ReflectionCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
 	NSString *imageName;
 	
-	NSUInteger numberOfBackgroundImages = 4;
+	NSInteger reflectionCellIndex = [self reflectionCellIndexForIndexPath:indexPath];
 	
-	if ([self reflectionCellIndexForIndexPath:indexPath] % numberOfBackgroundImages == 0) {
-		imageName = @"App Icon";
+	SectionType sectionType = [self sectionTypeForSection:indexPath.section];
+	
+	if (sectionType == SectionTypeGoals) {
+		
 	}
 	
-	else if ([self reflectionCellIndexForIndexPath:indexPath] % numberOfBackgroundImages == 1){
-		imageName = @"Deep Blue Space";
+	else if (sectionType == SectionTypeExperience) {
+		NSUInteger numberOfExperienceBackgroundImages = 4;
+		
+		if (reflectionCellIndex % numberOfExperienceBackgroundImages == 0) {
+			imageName = @"App Icon";
+		}
+		
+		else if (reflectionCellIndex % numberOfExperienceBackgroundImages == 1){
+			imageName = @"Deep Blue Space";
+		}
+		
+		else if (reflectionCellIndex % numberOfExperienceBackgroundImages == 2) {
+			imageName = @"Microprocessor";
+		}
+		
+		else if (reflectionCellIndex % numberOfExperienceBackgroundImages == 3) {
+			imageName = @"sky";
+		}
 	}
 	
-	else if ([self reflectionCellIndexForIndexPath:indexPath] % numberOfBackgroundImages == 2) {
-		imageName = @"Apple A6";
+	else if (sectionType == SectionTypeEducation) {
+		NSUInteger numberOfEducationBackgroundImages = 1;
+		
+		if (reflectionCellIndex % numberOfEducationBackgroundImages == 0) {
+			imageName = @"UIUC Union";
+		}
 	}
 	
-	else if ([self reflectionCellIndexForIndexPath:indexPath] % numberOfBackgroundImages == 3) {
-		imageName = @"sky";
+	else if (sectionType == SectionTypeLeadershipAndActivities) {
+		NSUInteger numberOfLeadershipAndActivitiesBackgroundImages = 1;
+		
+		if (reflectionCellIndex % numberOfLeadershipAndActivitiesBackgroundImages == 0) {
+			imageName = @"clownFish";
+		}
+	}
+	
+	else if (sectionType == SectionTypeSkills) {
+		NSUInteger numberOfSkillsBackgroundImages = 1;
+		
+		if (reflectionCellIndex % numberOfSkillsBackgroundImages == 0) {
+			imageName = @"Solar System";
+		}
 	}
 	
 	[cell setReflectionBackgroundViewImage:[UIImage imageNamed:imageName]];
 }
 
 - (void)configureExperienceReflectionCell:(ExperienceReflectionCell *)experienceReflectionCell forRowAtIndexPath:(NSIndexPath *)indexPath {
-	ExperienceReflection *experienceReflection = _experienceReflections[[self reflectionCellIndexForIndexPath:indexPath]];
+	ReflectionManager *sharedReflectionManager = [ReflectionManager sharedReflectionManager];
+	
+	ExperienceReflection *experienceReflection = sharedReflectionManager.experienceReflections[[self reflectionCellIndexForIndexPath:indexPath]];
 	
 	[experienceReflectionCell.employerLabel setText:experienceReflection.employer];
 	[experienceReflectionCell.titleLabel setText:experienceReflection.title];
@@ -370,12 +410,23 @@ typedef NS_ENUM(NSInteger, SectionType) {
 }
 
 - (void)configureEducationReflectionCell:(EducationReflectionCell *)educationReflectionCell forRowAtIndexPath:(NSIndexPath *)indexPath {
-	EducationReflection *educationReflection = _educationReflections[[self reflectionCellIndexForIndexPath:indexPath]];
+		ReflectionManager *sharedReflectionManager = [ReflectionManager sharedReflectionManager];
+	
+	EducationReflection *educationReflection = sharedReflectionManager.educationReflections[[self reflectionCellIndexForIndexPath:indexPath]];
 	
 	[educationReflectionCell.schoolLabel setText:educationReflection.school];
-	[educationReflectionCell.degreeLabel setText:educationReflection.degree];
+	[educationReflectionCell.majorLabel setText:educationReflection.major];
+	[educationReflectionCell.minorLabel setText:educationReflection.minor];
 	[educationReflectionCell.expectedGraduationDateLabel setText:educationReflection.expectedGraduationDate];
 	[educationReflectionCell.gpaLabel setText:educationReflection.gpa];
+}
+
+- (void)configureLeadershipAndActivitiesReflectionCell:(LeadershipAndActivitiesReflectionCell *)leadershipAndActivitiesReflectionCell forRowAtIndexPath:(NSIndexPath *)indexPath {
+	
+}
+
+- (void)configureSkillsReflectionCell:(SkillsReflectionCell *)skillsReflectionCell forRowAtIndexPath:(NSIndexPath *)indexPath {
+	
 }
 
 #pragma mark - UITableViewDelegate
@@ -383,7 +434,7 @@ typedef NS_ENUM(NSInteger, SectionType) {
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
 	CGFloat sectionHeaderHeight = 0;
 	
-	SectionType sectionType = section;
+	SectionType sectionType = [self sectionTypeForSection:section];
 	
 	NSString *sectionHeader = [self sectionHeaderForSectionType:sectionType];
 	
@@ -400,6 +451,10 @@ typedef NS_ENUM(NSInteger, SectionType) {
 
 - (NSString *)sectionHeaderForSectionType:(SectionType)sectionType {
 	NSString *sectionHeader;
+	
+	if (sectionType == SectionTypeGoals) {
+		sectionHeader = SECTION_HEADER_GOALS_TITLE;
+	}
 	
 	if (sectionType == SectionTypeExperience) {
 		sectionHeader = SECTION_HEADER_EXPERIENCE_TITLE;
@@ -435,29 +490,33 @@ typedef NS_ENUM(NSInteger, SectionType) {
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 	CGFloat rowHeight = 0;
 	
+	ReflectionManager *sharedReflectionManager = [ReflectionManager sharedReflectionManager];
+	
 	if (indexPath.row % 2 == 0) {
-		if (indexPath.section == SectionTypeExperience) {
-			ExperienceReflection *experienceReflection = _experienceReflections[[self reflectionCellIndexForIndexPath:indexPath]];
+		SectionType sectionType = [self sectionTypeForSection:indexPath.section];
+		
+		if (sectionType == SectionTypeExperience) {
+			ExperienceReflection *experienceReflection = sharedReflectionManager.experienceReflections[[self reflectionCellIndexForIndexPath:indexPath]];
 			
 			ExperienceReflectionCell *prototypicalExperienceReflectionCell = [self.reflectionTableView dequeueReusableCellWithIdentifier:ExperienceReflectionCellIdentifier];
 			
 			rowHeight = [prototypicalExperienceReflectionCell heightForExperienceReflection:experienceReflection];
 		}
 		
-		else if (indexPath.section == SectionTypeEducation) {
-			EducationReflection *educationReflection = _educationReflections[[self reflectionCellIndexForIndexPath:indexPath]];
+		else if (sectionType == SectionTypeEducation) {
+			EducationReflection *educationReflection = sharedReflectionManager.educationReflections[[self reflectionCellIndexForIndexPath:indexPath]];
 			
 			EducationReflectionCell *prototypicalEducationReflectionCell = [self.reflectionTableView dequeueReusableCellWithIdentifier:EducationReflectionCellIdentifier];
 			
 			rowHeight = [prototypicalEducationReflectionCell heightForEducationReflection:educationReflection];
 		}
 		
-		else if (indexPath.section == SectionTypeLeadershipAndActivities) {
-			
+		else if (sectionType == SectionTypeLeadershipAndActivities) {
+			rowHeight = 120.0f;
 		}
 		
-		else if (indexPath.section == SectionTypeSkills) {
-			
+		else if (sectionType == SectionTypeSkills) {
+			rowHeight = 120.0f;
 		}
 		
 		return rowHeight;
@@ -476,9 +535,41 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 - (NSInteger)reflectionCellIndexForIndexPath:(NSIndexPath *)indexPath {
-	NSIndexPath *reflectionCellIndexPath = [NSIndexPath indexPathForRow:indexPath.row/2 inSection:indexPath.section];
+	SectionType sectionType = [self sectionTypeForSection:indexPath.section];
+	
+	NSIndexPath *reflectionCellIndexPath = [NSIndexPath indexPathForRow:indexPath.row/2 inSection:sectionType];
 	
 	return reflectionCellIndexPath.row;
+}
+
+- (SectionType)sectionTypeForSection:(NSInteger)section {
+	SectionType sectionType;
+	
+	if (_selectedMenuItemType == MenuItemTypeAll) {
+		sectionType = section;
+	}
+	
+	else if (_selectedMenuItemType == MenuItemTypeGoals) {
+		sectionType = SectionTypeGoals;
+	}
+	
+	else if (_selectedMenuItemType == MenuItemTypeExperience) {
+		sectionType = SectionTypeExperience;
+	}
+	
+	else if (_selectedMenuItemType == MenuItemTypeEducation) {
+		sectionType = SectionTypeEducation;
+	}
+	
+	else if (_selectedMenuItemType == MenuItemTypeLeadershipAndActivities) {
+		sectionType = SectionTypeLeadershipAndActivities;
+	}
+	
+	else if (_selectedMenuItemType == MenuItemTypeSkills) {
+		sectionType = SectionTypeSkills;
+	}
+	
+	return sectionType;
 }
 
 #pragma mark - Reflection table view
@@ -632,7 +723,32 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
 - (void)menuTableView:(UITableView *)menuTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	if (indexPath.section == MenuSectionTypeItem) {
+		if (indexPath.row == MenuItemTypeAll) {
+			_selectedMenuItemType = MenuItemTypeAll;
+		}
 		
+		else if (indexPath.row == MenuItemTypeGoals) {
+			_selectedMenuItemType = MenuItemTypeGoals;
+		}
+		
+		else if (indexPath.row == MenuItemTypeExperience) {
+			_selectedMenuItemType = MenuItemTypeExperience;
+		}
+		
+		else if (indexPath.row == MenuItemTypeEducation) {
+			_selectedMenuItemType = MenuItemTypeEducation;
+		}
+		
+		else if (indexPath.row == MenuItemTypeLeadershipAndActivities) {
+			_selectedMenuItemType = MenuItemTypeLeadershipAndActivities;
+		}
+		
+		else if (indexPath.row == MenuItemTypeSkills) {
+			_selectedMenuItemType = MenuItemTypeSkills;
+		}
+		
+		[self.reflectionTableView reloadData];
+		[self.menu hide];
 	}
 }
 

@@ -18,6 +18,13 @@
 		0518162618F237810009648E /* ExperienceReflectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0518162518F237810009648E /* ExperienceReflectionCell.m */; };
 		0525DED018F27338001ADD5D /* EducationReflectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0525DECF18F27338001ADD5D /* EducationReflectionCell.m */; };
 		0525DED318F2734F001ADD5D /* EducationReflection.m in Sources */ = {isa = PBXBuildFile; fileRef = 0525DED218F2734F001ADD5D /* EducationReflection.m */; };
+		05316CE618FB248F003A92AF /* ReflectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05316CE518FB248F003A92AF /* ReflectionManager.m */; };
+		05316CE818FB3694003A92AF /* UIUC Union@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05316CE718FB3694003A92AF /* UIUC Union@2x.png */; };
+		05316CEA18FB388B003A92AF /* Foellinger Auditorium@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05316CE918FB388B003A92AF /* Foellinger Auditorium@2x.png */; };
+		05316CED18FB3EF6003A92AF /* LeadershipAndActivitiesReflection.m in Sources */ = {isa = PBXBuildFile; fileRef = 05316CEC18FB3EF6003A92AF /* LeadershipAndActivitiesReflection.m */; };
+		05316CF018FB3F0E003A92AF /* SkillsReflection.m in Sources */ = {isa = PBXBuildFile; fileRef = 05316CEF18FB3F0E003A92AF /* SkillsReflection.m */; };
+		05316CF318FB3FFF003A92AF /* LeadershipAndActivitiesReflectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05316CF218FB3FFF003A92AF /* LeadershipAndActivitiesReflectionCell.m */; };
+		05316CF618FB4012003A92AF /* SkillsReflectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05316CF518FB4012003A92AF /* SkillsReflectionCell.m */; };
 		0539202A18F4A179008DDD64 /* ComposeGoalButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0539202918F4A179008DDD64 /* ComposeGoalButton@2x.png */; };
 		0539202C18F4A22D008DDD64 /* ComposeGoalButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0539202B18F4A22D008DDD64 /* ComposeGoalButton.png */; };
 		0539203418F4B0CB008DDD64 /* MenuButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0539203218F4B0CB008DDD64 /* MenuButton@2x.png */; };
@@ -85,6 +92,18 @@
 		0525DECF18F27338001ADD5D /* EducationReflectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EducationReflectionCell.m; sourceTree = "<group>"; };
 		0525DED118F2734F001ADD5D /* EducationReflection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EducationReflection.h; sourceTree = "<group>"; };
 		0525DED218F2734F001ADD5D /* EducationReflection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EducationReflection.m; sourceTree = "<group>"; };
+		05316CE418FB248F003A92AF /* ReflectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReflectionManager.h; sourceTree = "<group>"; };
+		05316CE518FB248F003A92AF /* ReflectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReflectionManager.m; sourceTree = "<group>"; };
+		05316CE718FB3694003A92AF /* UIUC Union@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIUC Union@2x.png"; sourceTree = "<group>"; };
+		05316CE918FB388B003A92AF /* Foellinger Auditorium@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Foellinger Auditorium@2x.png"; sourceTree = "<group>"; };
+		05316CEB18FB3EF6003A92AF /* LeadershipAndActivitiesReflection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeadershipAndActivitiesReflection.h; sourceTree = "<group>"; };
+		05316CEC18FB3EF6003A92AF /* LeadershipAndActivitiesReflection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeadershipAndActivitiesReflection.m; sourceTree = "<group>"; };
+		05316CEE18FB3F0E003A92AF /* SkillsReflection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillsReflection.h; sourceTree = "<group>"; };
+		05316CEF18FB3F0E003A92AF /* SkillsReflection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillsReflection.m; sourceTree = "<group>"; };
+		05316CF118FB3FFF003A92AF /* LeadershipAndActivitiesReflectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeadershipAndActivitiesReflectionCell.h; sourceTree = "<group>"; };
+		05316CF218FB3FFF003A92AF /* LeadershipAndActivitiesReflectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeadershipAndActivitiesReflectionCell.m; sourceTree = "<group>"; };
+		05316CF418FB4012003A92AF /* SkillsReflectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillsReflectionCell.h; sourceTree = "<group>"; };
+		05316CF518FB4012003A92AF /* SkillsReflectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillsReflectionCell.m; sourceTree = "<group>"; };
 		0539202918F4A179008DDD64 /* ComposeGoalButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ComposeGoalButton@2x.png"; sourceTree = "<group>"; };
 		0539202B18F4A22D008DDD64 /* ComposeGoalButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ComposeGoalButton.png; sourceTree = "<group>"; };
 		0539203218F4B0CB008DDD64 /* MenuButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MenuButton@2x.png"; sourceTree = "<group>"; };
@@ -175,6 +194,10 @@
 				0518162518F237810009648E /* ExperienceReflectionCell.m */,
 				0525DECE18F27338001ADD5D /* EducationReflectionCell.h */,
 				0525DECF18F27338001ADD5D /* EducationReflectionCell.m */,
+				05316CF118FB3FFF003A92AF /* LeadershipAndActivitiesReflectionCell.h */,
+				05316CF218FB3FFF003A92AF /* LeadershipAndActivitiesReflectionCell.m */,
+				05316CF418FB4012003A92AF /* SkillsReflectionCell.h */,
+				05316CF518FB4012003A92AF /* SkillsReflectionCell.m */,
 			);
 			name = "Reflection Cell";
 			sourceTree = "<group>";
@@ -182,6 +205,8 @@
 		0518161218F1FE610009648E /* Reflection Images */ = {
 			isa = PBXGroup;
 			children = (
+				05316CE718FB3694003A92AF /* UIUC Union@2x.png */,
+				05316CE918FB388B003A92AF /* Foellinger Auditorium@2x.png */,
 				054294F318FA77E80071B322 /* App Icon@2x.png */,
 				054294F118FA77730071B322 /* Microprocessor@2x.png */,
 				054294EF18FA77040071B322 /* Solar System@2x.png */,
@@ -354,6 +379,12 @@
 				0518162218F236A50009648E /* ExperienceReflection.m */,
 				0525DED118F2734F001ADD5D /* EducationReflection.h */,
 				0525DED218F2734F001ADD5D /* EducationReflection.m */,
+				05316CEB18FB3EF6003A92AF /* LeadershipAndActivitiesReflection.h */,
+				05316CEC18FB3EF6003A92AF /* LeadershipAndActivitiesReflection.m */,
+				05316CEE18FB3F0E003A92AF /* SkillsReflection.h */,
+				05316CEF18FB3F0E003A92AF /* SkillsReflection.m */,
+				05316CE418FB248F003A92AF /* ReflectionManager.h */,
+				05316CE518FB248F003A92AF /* ReflectionManager.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -454,7 +485,9 @@
 				054294F418FA77E80071B322 /* App Icon@2x.png in Resources */,
 				0539202A18F4A179008DDD64 /* ComposeGoalButton@2x.png in Resources */,
 				054294F218FA77730071B322 /* Microprocessor@2x.png in Resources */,
+				05316CEA18FB388B003A92AF /* Foellinger Auditorium@2x.png in Resources */,
 				05DADC0618F1C35800B96EE2 /* InfoPlist.strings in Resources */,
+				05316CE818FB3694003A92AF /* UIUC Union@2x.png in Resources */,
 				05AC71D418FA309E00117C91 /* Troy Chmieleski Profile@2x.png in Resources */,
 				0539203418F4B0CB008DDD64 /* MenuButton@2x.png in Resources */,
 				054294E218FA70BC0071B322 /* Apple A6@2x.png in Resources */,
@@ -493,14 +526,19 @@
 			files = (
 				0539203818F4C624008DDD64 /* Menu.m in Sources */,
 				05DADC0C18F1C35800B96EE2 /* AppDelegate.m in Sources */,
+				05316CED18FB3EF6003A92AF /* LeadershipAndActivitiesReflection.m in Sources */,
 				0539204118F4D556008DDD64 /* MenuCell.m in Sources */,
+				05316CF018FB3F0E003A92AF /* SkillsReflection.m in Sources */,
 				05DADC0818F1C35800B96EE2 /* main.m in Sources */,
+				05316CF318FB3FFF003A92AF /* LeadershipAndActivitiesReflectionCell.m in Sources */,
 				0518162318F236A50009648E /* ExperienceReflection.m in Sources */,
 				0525DED018F27338001ADD5D /* EducationReflectionCell.m in Sources */,
+				05316CE618FB248F003A92AF /* ReflectionManager.m in Sources */,
 				0518162018F2255A0009648E /* Reflection.m in Sources */,
 				0539203E18F4D547008DDD64 /* MenuProfileCell.m in Sources */,
 				0518162618F237810009648E /* ExperienceReflectionCell.m in Sources */,
 				0518161118F1FA960009648E /* ReflectionCell.m in Sources */,
+				05316CF618FB4012003A92AF /* SkillsReflectionCell.m in Sources */,
 				0525DED318F2734F001ADD5D /* EducationReflection.m in Sources */,
 				0518160D18F1F8800009648E /* ReflectionViewController.m in Sources */,
 			);

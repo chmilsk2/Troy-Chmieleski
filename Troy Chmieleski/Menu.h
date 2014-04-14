@@ -36,6 +36,7 @@
 
 @property (nonatomic, strong) UITableView *menuTableView;
 
+- (void)hide;
 - (void)show;
 
 @end

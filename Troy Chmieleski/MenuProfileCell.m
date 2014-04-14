@@ -20,7 +20,7 @@
 #define PROFILE_VIEW_SIZE (PROFILE_IMAGE_SIZE + 2*PROFILE_VIEW_BORDER_WIDTH)
 
 // Name label
-#define NAME @"TROY SCOTT CHMIELESKI"
+#define NAME @"TROY CHMIELESKI"
 #define NAME_LABEL_FONT_SIZE 16.0f
 
 @interface MenuProfileCell ()
