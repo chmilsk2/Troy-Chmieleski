@@ -50,6 +50,9 @@
 // Google Analytics
 #define SCREEN_NAME @"Reflection Screen"
 
+// Reflection table view
+#define REFLECTION_TABLE_VIEW_BOTTOM_PADDING 10.0f
+
 #define WorkExperienceReflectionCellIdentifier @"Work Experience Reflection Cell Identifier"
 #define EducationReflectionCellIdentifier @"Education Reflection Cell Identifier"
 #define LeadershipAndActivitiesReflectionCellIdentifier @"Leadership and Activities Reflection Cell Identifier"
@@ -609,6 +612,8 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 		_reflectionTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kStatusBarHeight, kScreenWidth, kScreenHeight - kStatusBarHeight) style:UITableViewStyleGrouped];
 		[_reflectionTableView setDataSource:self];
 		[_reflectionTableView setDelegate:self];
+		
+		_reflectionTableView.contentInset = UIEdgeInsetsMake(0, 0, MENU_BUTTON_SIZE - REFLECTION_TABLE_VIEW_BOTTOM_PADDING, 0);
 	}
 	
 	return _reflectionTableView;
