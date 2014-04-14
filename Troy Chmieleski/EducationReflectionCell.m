@@ -109,7 +109,9 @@
 		height += descriptionRect.size.height;
 	}
 	
-	height += DESCRIPTION_LABELS_VERTICAL_MARGIN;
+	if (educationReflection.descriptions.count > 0) {
+		height += DESCRIPTION_LABELS_VERTICAL_MARGIN;
+	}
 	
 	return height;
 }
