@@ -10,7 +10,6 @@
 
 @interface ReflectionManager : NSObject
 
-@property (nonatomic, strong, readonly) NSMutableArray *goalsReflections;
 @property (nonatomic, strong, readonly) NSMutableArray *workExperienceReflections;
 @property (nonatomic, strong, readonly) NSMutableArray *educationReflections;
 @property (nonatomic, strong, readonly) NSMutableArray *leadershipAndActivitiesReflections;

@@ -56,11 +56,10 @@
 #define SkillsReflectionCellIdentifier @"Skills Reflection Cell Identifier"
 #define ReflectionPaddingCellIdentifier @"Reflection Padding Cell Identifier"
 
-#define NUMBER_OF_SECTIONS 5
+#define NUMBER_OF_SECTIONS 4
 #define SECTION_HEADER_HORIZONTAL_MARGIN 14.0f
 #define SECTION_HEADER_VERTICAL_MARGIN 10.0f
 #define SECTION_HEADER_BACKGROUND_OPACITY 1.0f
-#define SECTION_HEADER_GOALS_TITLE @"GOALS"
 #define SECTION_HEADER_EXPERIENCE_TITLE @"EXPERIENCE"
 #define SECTION_HEADER_EDUCATION_TITLE @"EDUCATION"
 #define SECTION_HEADER_LEADERSHIP_AND_ACTIVITIES_TITLE @"LEADERSHIP & ACTIVITIES"
@@ -82,7 +81,6 @@
 #define MENU_NUMBER_OF_SECTIONS 2
 #define MENU_NUMBER_OF_PROFILE_ROWS 1
 #define MENU_ITEM_ALL @"ALL"
-#define MENU_ITEM_GOALS @"GOALS"
 #define MENU_ITEM_EXPERIENCE @"EXPERIENCE"
 #define MENU_ITEM_EDUCATION @"EDUCATION"
 #define MENU_ITEM_LEADERSHIP_AND_ACTIVITIES @"LEADERSHIP & ACTIVITIES"
@@ -94,12 +92,6 @@
 #define MENU_BUTTON_SIZE 44.0f
 #define MENU_BUTTON_IMAGE_NAME @"MenuButton"
 
-// Compose goal button
-#define COMPOSE_GOAL_BUTTON_HORIZONTAL_MARGIN 14.0f
-#define COMPOSE_GOAL_BUTTON_VERTICAL_MARGIN 14.0f
-#define COMPOSE_GOAL_BUTTON_SIZE 44.0f
-#define COMPOSE_GOAL_BUTTON_IMAGE_NAME @"ComposeGoalButton"
-
 // Screen dimensions
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height
@@ -110,11 +102,10 @@
 // Reflections
 
 typedef NS_ENUM(NSInteger, SectionType) {
-	SectionTypeGoals = 0,
-	SectionTypeWorkExperience = 1,
-	SectionTypeEducation = 2,
-	SectionTypeLeadershipAndActivities = 3,
-	SectionTypeSkills = 4
+	SectionTypeWorkExperience = 0,
+	SectionTypeEducation = 1,
+	SectionTypeLeadershipAndActivities = 2,
+	SectionTypeSkills = 3
 };
 
 // Menu
@@ -126,11 +117,10 @@ typedef NS_ENUM(NSUInteger, MenuSectionType) {
 
 typedef NS_ENUM(NSInteger, MenuItemType) {
 	MenuItemTypeAll = 0,
-	MenuItemTypeGoals = 1,
-	MenuItemTypeExperience = 2,
-	MenuItemTypeEducation = 3,
-	MenuItemTypeLeadershipAndActivities = 4,
-	MenuItemTypeSkills = 5
+	MenuItemTypeExperience = 1,
+	MenuItemTypeEducation = 2,
+	MenuItemTypeLeadershipAndActivities = 3,
+	MenuItemTypeSkills = 4
 };
 
 @interface ReflectionViewController () <MenuProfileCellDelegate, ReflectionCelDelegate, MenuDataSource, MenuDelegate, SkillReflectionCellDelegate>
@@ -138,7 +128,6 @@ typedef NS_ENUM(NSInteger, MenuItemType) {
 @property (nonatomic, strong) NSArray *menuItems;
 @property (nonatomic, strong) Menu *menu;
 @property (nonatomic, strong) UIButton *menuButton;
-@property (nonatomic, strong) UIButton *composeGoalButton;
 
 @end
 
@@ -159,7 +148,6 @@ typedef NS_ENUM(NSInteger, MenuItemType) {
 		
 		[self.view addSubview:self.reflectionTableView];
 		[self.view addSubview:self.menuButton];
-		[self.view addSubview:self.composeGoalButton];
 		
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(contentSizeDidChange:) name:UIContentSizeCategoryDidChangeNotification object:nil];
     }
@@ -196,7 +184,7 @@ typedef NS_ENUM(NSInteger, MenuItemType) {
 	
 	[self.menu.menuTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
 	
-	_menuItems = @[@(MenuItemTypeAll), @(MenuItemTypeGoals), @(MenuItemTypeExperience), @(MenuItemTypeEducation), @(MenuItemTypeLeadershipAndActivities), @(MenuItemTypeSkills)];
+	_menuItems = @[@(MenuItemTypeAll), @(MenuItemTypeExperience), @(MenuItemTypeEducation), @(MenuItemTypeLeadershipAndActivities), @(MenuItemTypeSkills)];
 	
 	_selectedMenuItemType = MenuItemTypeAll;
 }
@@ -236,11 +224,7 @@ typedef NS_ENUM(NSInteger, MenuItemType) {
 	
 	CGFloat numberOfRowsInSection = 0;
 	
-	if (sectionType == SectionTypeGoals) {
-		numberOfRowsInSection = sharedReflectionManager.goalsReflections.count;
-	}
-	
-	else if (sectionType == SectionTypeWorkExperience) {
+	if (sectionType == SectionTypeWorkExperience) {
 		numberOfRowsInSection = sharedReflectionManager.workExperienceReflections.count;
 	}
 	
@@ -293,10 +277,6 @@ typedef NS_ENUM(NSInteger, MenuItemType) {
 		ReflectionCell *reflectionCell;
 		
 		SectionType sectionType = [self sectionTypeForSection:indexPath.section];
-		
-		if (sectionType == SectionTypeGoals) {
-			
-		}
 		
 		if (sectionType == SectionTypeWorkExperience) {
 			WorkExperienceReflectionCell *workExperienceReflectionCell = [self.reflectionTableView dequeueReusableCellWithIdentifier:WorkExperienceReflectionCellIdentifier forIndexPath:indexPath];
@@ -352,11 +332,7 @@ typedef NS_ENUM(NSInteger, MenuItemType) {
 	
 	SectionType sectionType = [self sectionTypeForSection:indexPath.section];
 	
-	if (sectionType == SectionTypeGoals) {
-		
-	}
-	
-	else if (sectionType == SectionTypeWorkExperience) {
+	if (sectionType == SectionTypeWorkExperience) {
 		NSUInteger numberOfExperienceBackgroundImages = 4;
 		
 		if (reflectionCellIndex % numberOfExperienceBackgroundImages == 0) {
@@ -489,10 +465,6 @@ typedef NS_ENUM(NSInteger, MenuItemType) {
 - (NSString *)sectionHeaderForSectionType:(SectionType)sectionType {
 	NSString *sectionHeader;
 	
-	if (sectionType == SectionTypeGoals) {
-		sectionHeader = SECTION_HEADER_GOALS_TITLE;
-	}
-	
 	if (sectionType == SectionTypeWorkExperience) {
 		sectionHeader = SECTION_HEADER_EXPERIENCE_TITLE;
 	}
@@ -592,10 +564,6 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	
 	if (_selectedMenuItemType == MenuItemTypeAll) {
 		sectionType = section;
-	}
-	
-	else if (_selectedMenuItemType == MenuItemTypeGoals) {
-		sectionType = SectionTypeGoals;
 	}
 	
 	else if (_selectedMenuItemType == MenuItemTypeExperience) {
@@ -772,10 +740,6 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 			_selectedMenuItemType = MenuItemTypeAll;
 		}
 		
-		else if (indexPath.row == MenuItemTypeGoals) {
-			_selectedMenuItemType = MenuItemTypeGoals;
-		}
-		
 		else if (indexPath.row == MenuItemTypeExperience) {
 			_selectedMenuItemType = MenuItemTypeExperience;
 		}
@@ -814,10 +778,6 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	
 	if (menuItemType == MenuItemTypeAll) {
 		menuItem = MENU_ITEM_ALL;
-	}
-	
-	else if (menuItemType == MenuItemTypeGoals) {
-		menuItem = MENU_ITEM_GOALS;
 	}
 	
 	else if (menuItemType == MenuItemTypeExperience) {
@@ -869,41 +829,6 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	NSString *urlStr = [skillsWikipediaDict objectForKey:skill];
 	
 	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlStr]];
-}
-
-#pragma mark - Compose goal button
-
-- (UIButton *)composeGoalButton {
-	if (!_composeGoalButton) {
-		_composeGoalButton = [[UIButton alloc] initWithFrame:CGRectMake(self.view.bounds.size.width - (COMPOSE_GOAL_BUTTON_SIZE + COMPOSE_GOAL_BUTTON_HORIZONTAL_MARGIN), self.view.bounds.size.height - (COMPOSE_GOAL_BUTTON_SIZE + COMPOSE_GOAL_BUTTON_VERTICAL_MARGIN), COMPOSE_GOAL_BUTTON_SIZE, COMPOSE_GOAL_BUTTON_SIZE)];
-		[_composeGoalButton addTarget:self action:@selector(composeGoalButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
-		
-//		[_composeGoalButton setBackgroundColor:[UIColor blackColor]];
-//		[_composeGoalButton.layer setCornerRadius:44.0f/2];
-		
-		[_composeGoalButton setBackgroundImage:[UIImage imageNamed:COMPOSE_GOAL_BUTTON_IMAGE_NAME] forState:UIControlStateNormal];
-	}
-	
-	return _composeGoalButton;
-}
-
-- (void)composeGoalButtonTouched:(id)sender {
-	NSLog(@"compose goal button touched");
-	
-//	NSTimeInterval animationDuration = 0.4f;
-//	
-//	CABasicAnimation *cornerRadiusAnimation = [CABasicAnimation animationWithKeyPath:@"cornerRadius"];
-//	cornerRadiusAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
-//	cornerRadiusAnimation.fromValue = [NSNumber numberWithFloat:44.0f/2];
-//	cornerRadiusAnimation.toValue = [NSNumber numberWithFloat:0.0f];
-//	cornerRadiusAnimation.duration = animationDuration;
-//	[_composeGoalButton.layer setCornerRadius:0.0f];
-//	[_composeGoalButton.layer addAnimation:cornerRadiusAnimation forKey:@"cornerRadius"];
-//	
-//	[UIView animateWithDuration:animationDuration animations:^{
-//		[_composeGoalButton setFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
-//		[_composeGoalButton setBackgroundColor:[UIColor whiteColor]];
-//	}];
 }
 
 #pragma mark - Content size did change notification

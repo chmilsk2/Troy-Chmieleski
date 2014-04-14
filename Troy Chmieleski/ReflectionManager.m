@@ -49,7 +49,6 @@
     self = [super init];
 	
     if (self) {
-		[self setUpGoalsReflections];
 		[self setUpWorkExperienceReflections];
 		[self setUpEducationReflections];
 		[self setUpLeadershipAndActivitiesReflections];
@@ -58,10 +57,6 @@
     }
 	
     return self;
-}
-
-- (void)setUpGoalsReflections {
-	_goalsReflections = [[NSMutableArray alloc] init];
 }
 
 - (void)setUpWorkExperienceReflections {
